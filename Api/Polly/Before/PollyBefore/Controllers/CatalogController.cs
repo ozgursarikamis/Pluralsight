@@ -4,13 +4,23 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Polly;
+using Polly.Retry;
 
 namespace PollyBefore.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class CatalogController : Controller
-    {
+    { 
+        private readonly RetryPolicy<HttpResponseMessage> _httpResponsePolicy;
+
+        public CatalogController()
+        {
+            _httpResponsePolicy = Policy
+                .HandleResult<HttpResponseMessage>(r => r.IsSuccessStatusCode)
+                .RetryAsync(3);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
