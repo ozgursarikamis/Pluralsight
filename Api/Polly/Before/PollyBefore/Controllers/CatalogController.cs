@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -20,16 +19,10 @@ namespace PollyBefore.Controllers
         {
             _httpResponsePolicy = Policy
                 .HandleResult<HttpResponseMessage>(r => !r.IsSuccessStatusCode)
-                .RetryAsync(3, (response, timespan) =>
-                {
-                    if (response.Result.StatusCode == HttpStatusCode.Unauthorized)
-                    {
-                        // TODO: Reauthorize:
-                        Console.WriteLine("UNAUTHORIZED");
-                        // PerformReauthorization();
-                    }
-                });
+                .WaitAndRetryAsync(3, retryAttempt => 
+                    TimeSpan.FromSeconds(Math.Pow(2, retryAttempt) / 2));
         }
+        
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
