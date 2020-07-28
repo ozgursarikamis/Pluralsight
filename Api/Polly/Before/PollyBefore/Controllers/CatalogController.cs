@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -19,8 +20,16 @@ namespace PollyBefore.Controllers
         {
             _httpResponsePolicy = Policy
                 .HandleResult<HttpResponseMessage>(r => !r.IsSuccessStatusCode)
-                .WaitAndRetryAsync(3, retryAttempt => 
-                    TimeSpan.FromSeconds(Math.Pow(2, retryAttempt) / 2));
+                .RetryAsync(3, (httpResponseMessage, retryCount) =>
+                {
+                    if (httpResponseMessage.Result.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        
+                    } else if (httpResponseMessage.Result.StatusCode == HttpStatusCode.Conflict)
+                    {
+                        
+                    }
+                });
         }
         
         [HttpGet("{id}")]
