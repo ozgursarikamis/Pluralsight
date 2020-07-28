@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -18,8 +19,16 @@ namespace PollyBefore.Controllers
         public CatalogController()
         {
             _httpResponsePolicy = Policy
-                .HandleResult<HttpResponseMessage>(r => r.IsSuccessStatusCode)
-                .RetryAsync(3);
+                .HandleResult<HttpResponseMessage>(r => !r.IsSuccessStatusCode)
+                .RetryAsync(3, (response, timespan) =>
+                {
+                    if (response.Result.StatusCode == HttpStatusCode.Unauthorized)
+                    {
+                        // TODO: Reauthorize:
+                        Console.WriteLine("UNAUTHORIZED");
+                        // PerformReauthorization();
+                    }
+                });
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
@@ -27,7 +36,8 @@ namespace PollyBefore.Controllers
             var httpClient = GetHttpClient();
             string requestEndpoint = $"inventory/{id}";
 
-            var response = await httpClient.GetAsync(requestEndpoint);
+            // var response = await httpClient.GetAsync(requestEndpoint);
+            var response = await _httpResponsePolicy.ExecuteAsync(() => httpClient.GetAsync(requestEndpoint));
 
             if (!response.IsSuccessStatusCode)
                 return StatusCode((int) response.StatusCode, response.Content.ReadAsStringAsync());
