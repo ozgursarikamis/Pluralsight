@@ -17,21 +17,19 @@ namespace PollyBefore.Controllers
             var httpClient = GetHttpClient();
             string requestEndpoint = $"inventory/{id}";
 
-            HttpResponseMessage response = await httpClient.GetAsync(requestEndpoint);
+            var response = await httpClient.GetAsync(requestEndpoint);
 
-            if (response.IsSuccessStatusCode)
-            {
-                int itemsInStock = JsonConvert.DeserializeObject<int>(await response.Content.ReadAsStringAsync());
-                return Ok(itemsInStock);
-            }
+            if (!response.IsSuccessStatusCode)
+                return StatusCode((int) response.StatusCode, response.Content.ReadAsStringAsync());
+            var itemsInStock = JsonConvert.DeserializeObject<int>(await response.Content.ReadAsStringAsync());
+            return Ok(itemsInStock);
 
-            return StatusCode((int)response.StatusCode, response.Content.ReadAsStringAsync());
         }
 
         private HttpClient GetHttpClient()
         {
             var httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri(@"http://localhost:57696/api/");
+            httpClient.BaseAddress = new Uri(@"http://localhost:57697/api/");
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             return httpClient;

@@ -16,12 +16,7 @@ namespace PollyBefore.Controllers
             await Task.Delay(100);// simulate some data processing by delaying for 100 milliseconds 
             _requestCount++;
 
-            if (_requestCount % 4 == 0) // only one of out four requests will succeed
-            {
-                return Ok(15);
-            }
-
-            return StatusCode((int)HttpStatusCode.InternalServerError, "Something went wrong");
+            return _requestCount % 4 == 0 ? Ok(15) : StatusCode((int)HttpStatusCode.InternalServerError, "Something went wrong");
         }
     }
 }
