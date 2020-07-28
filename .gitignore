@@ -1,0 +1,22 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/v16/.suo
+/Api/AsyncAPI/Books/BookCovers.API/bin/Debug/netcoreapp3.1
+/Api/AsyncAPI/Books/BookCovers.API/obj
+/Api/AsyncAPI/Books/Books.API/.idea/.idea.Books.API.dir
+/Api/AsyncAPI/Books/Books.API/bin/Debug/netcoreapp3.1
+/Api/AsyncAPI/Books/Books.API/obj
+/Api/AsyncAPI/Books/Books.Legacy/bin/Debug/netstandard20
+/Api/AsyncAPI/Books/Books.Legacy/obj
+/Language/Attributes/ContactWriter/bin
+/Language/Attributes/ContactWriter/obj
+/Language/Attributes/ContactWriter.Test/bin/Debug/netcoreapp3.1
+/Language/Attributes/ContactWriter.Test/obj
+/Language/Attributes/ClassLibrary1/ClassLibrary1/obj/Debug
+/Language/Attributes/ClassLibrary1/ClassLibrary1/bin/Debug
+/.vs/DesignTimeBuild
+/.vs/Pluralsight/v16
+/.vs/Pluralsight/DesignTimeBuild
+/Web/LifeCycle
