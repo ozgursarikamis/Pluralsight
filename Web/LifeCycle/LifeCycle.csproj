@@ -9,4 +9,8 @@
     <Compile Remove="ModelBinderProviders\CSVModelBinderProvider.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="LifeCycle.sln" />
+  </ItemGroup>
+
 </Project>
