@@ -101,10 +101,19 @@
       <Project>{9128ad3d-7cac-41db-a597-28f5a1d4746f}</Project>
       <Name>PeopleViewer.View</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PersonDataReader.CSV\PersonDataReader.CSV.csproj">
+      <Project>{d2a03edd-6fc9-423e-837e-4acf551508a8}</Project>
+      <Name>PersonDataReader.CSV</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PersonDataReader.Service\PersonDataReader.Service.csproj">
       <Project>{CA99E8C7-8790-4FA2-9787-C8E5DB9E356E}</Project>
       <Name>PersonDataReader.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(SolutionDir)AdditionalFiles\*.*" "$(TargetDir)" /Y
+xcopy "$(SolutionDir)AdditionalFiles\x86\*.*" "$(TargetDir)x86\" /Y
+xcopy "$(SolutionDir)AdditionalFiles\x64\*.*" "$(TargetDir)x64\" /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>
