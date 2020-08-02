@@ -43,3 +43,24 @@
 /DesignPatterns/Dependency Injection/PersonDataReader.SQL/obj
 /DesignPatterns/Dependency Injection/PersonDataReader.Decorators/obj
 /DesignPatterns/Dependency Injection/PersonDataReader.Decorators/bin/Debug/netstandard2.0
+/Web/DI-Steve Gordon/src/TennisBookings.Web/obj
+/Web/DI-Steve Gordon/test/TennisBookings.Web.Tests/obj
+/DesignPatterns/Dependency Injection/PeopleViewer.Autofac/bin/Debug
+/Api/.DS_Store
+/DesignPatterns/Dependency Injection/PeopleViewer.Autofac/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
+/DesignPatterns/Dependency Injection/PeopleViewer.Autofac/obj/Debug
+/DesignPatterns/Dependency Injection/PeopleViewer.Autofac/obj
+/DesignPatterns/Dependency Injection/PeopleViewer.Autofac.LateBinding/bin/Debug
+/DesignPatterns/Dependency Injection/PeopleViewer.Autofac.LateBinding/obj
+/DesignPatterns/Dependency Injection/PeopleViewer.Ninject/bin/Debug
+/DesignPatterns/Dependency Injection/PeopleViewer.Ninject/obj/Debug
+/DesignPatterns/Dependency Injection/PeopleViewer.Ninject/obj
+/DesignPatterns/Dependency Injection/PeopleViewer.Presentation.Tests/bin/Debug/netcoreapp3.1
+/DesignPatterns/Dependency Injection/PeopleViewer.Presentation.Tests/obj/Debug/netcoreapp3.1
+/DesignPatterns/Dependency Injection/PeopleViewer.Presentation.Tests/obj
+/DesignPatterns/Dependency Injection/PersonDataReader.CSV.Tests/bin/Debug/netcoreapp3.1
+/DesignPatterns/Dependency Injection/PersonDataReader.CSV.Tests/obj/Debug/netcoreapp3.1
+/DesignPatterns/Dependency Injection/PersonDataReader.CSV.Tests/obj
+/Web/.DS_Store
+/.DS_Store
+/.idea/.idea.Pluralsight/.idea
