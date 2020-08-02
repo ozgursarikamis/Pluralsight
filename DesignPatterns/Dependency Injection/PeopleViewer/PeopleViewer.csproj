@@ -104,6 +104,10 @@
       <Project>{952dade9-b379-4ef2-aa13-781a847818ec}</Project>
       <Name>PeopleViewer.Presentation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PersonDataReader.Service\PersonDataReader.Service.csproj">
+      <Project>{CA99E8C7-8790-4FA2-9787-C8E5DB9E356E}</Project>
+      <Name>PersonDataReader.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

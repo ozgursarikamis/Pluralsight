@@ -5,7 +5,7 @@ using System.Net;
 
 namespace PersonDataReader.Service
 {
-    public class ServiceReader
+    public class ServiceReader: IPersonReader
     {
         private readonly WebClient client = new WebClient();
         private const string baseUri = "http://localhost:9874/api/people";
