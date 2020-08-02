@@ -57,7 +57,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer", "DesignPatte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "People.Service", "DesignPatterns\Dependency Injection\People.Service\People.Service.csproj", "{7DD92A6C-7CB1-4CA2-9CD3-0C95633F198E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-View", "1-View", "{15C7047A-450E-4269-9F29-96EC321EA848}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-Bootstrapper", "0-Bootstrapper", "{15C7047A-450E-4269-9F29-96EC321EA848}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-DataStorage", "4-DataStorage", "{FF2926BF-8456-4C06-A755-3C3EB61F3DFE}"
 EndProject
@@ -72,6 +72,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{27775FC0-A841-491F-AE5E-99BF754C0077}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleViewer.Common", "DesignPatterns\Dependency Injection\PeopleViewer.Common\PeopleViewer.Common.csproj", "{5D9D9BE8-9C6A-4655-9695-99942577A1D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-View", "1-View", "{A053A29E-3C1F-46B9-8B14-C6BAF82054AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer.View", "DesignPatterns\Dependency Injection\PeopleViewer.View\PeopleViewer.View.csproj", "{9128AD3D-7CAC-41DB-A597-28F5A1D4746F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -151,6 +155,10 @@ Global
 		{5D9D9BE8-9C6A-4655-9695-99942577A1D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D9D9BE8-9C6A-4655-9695-99942577A1D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D9D9BE8-9C6A-4655-9695-99942577A1D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9128AD3D-7CAC-41DB-A597-28F5A1D4746F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9128AD3D-7CAC-41DB-A597-28F5A1D4746F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9128AD3D-7CAC-41DB-A597-28F5A1D4746F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9128AD3D-7CAC-41DB-A597-28F5A1D4746F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -187,6 +195,8 @@ Global
 		{CA99E8C7-8790-4FA2-9787-C8E5DB9E356E} = {C3D5F2F8-736B-4DCD-B829-8BFED74BA493}
 		{27775FC0-A841-491F-AE5E-99BF754C0077} = {F676F8FF-ABA5-4C99-96CA-29B666FAEB9F}
 		{5D9D9BE8-9C6A-4655-9695-99942577A1D2} = {27775FC0-A841-491F-AE5E-99BF754C0077}
+		{A053A29E-3C1F-46B9-8B14-C6BAF82054AA} = {F676F8FF-ABA5-4C99-96CA-29B666FAEB9F}
+		{9128AD3D-7CAC-41DB-A597-28F5A1D4746F} = {A053A29E-3C1F-46B9-8B14-C6BAF82054AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FCF92DCF-3599-4010-BB06-FFF5E0A25037}
