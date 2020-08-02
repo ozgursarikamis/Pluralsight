@@ -2,22 +2,19 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{068F7880-21BD-475F-A346-13AB0A23133E}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>PeopleViewer</RootNamespace>
-    <AssemblyName>PeopleViewer</AssemblyName>
+    <ProjectGuid>{9128AD3D-7CAC-41DB-A597-28F5A1D4746F}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>PeopleViewer.View</RootNamespace>
+    <AssemblyName>PeopleViewer.View</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -27,7 +24,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -52,17 +48,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <Page Include="PeopleViewerWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Converters.cs" />
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PeopleViewerWindow.xaml.cs">
+      <DependentUpon>PeopleViewerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,9 +80,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\PeopleViewer.Common\PeopleViewer.Common.csproj">
       <Project>{5d9d9be8-9c6a-4655-9695-99942577a1d2}</Project>
       <Name>PeopleViewer.Common</Name>
@@ -97,30 +88,6 @@
       <Project>{952dade9-b379-4ef2-aa13-781a847818ec}</Project>
       <Name>PeopleViewer.Presentation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PeopleViewer.View\PeopleViewer.View.csproj">
-      <Project>{9128ad3d-7cac-41db-a597-28f5a1d4746f}</Project>
-      <Name>PeopleViewer.View</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PersonDataReader.CSV\PersonDataReader.CSV.csproj">
-      <Project>{d2a03edd-6fc9-423e-837e-4acf551508a8}</Project>
-      <Name>PersonDataReader.CSV</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PersonDataReader.Decorators\PersonDataReader.Decorators.csproj">
-      <Project>{9cdea396-fe85-449a-b8ed-d941efb80bf3}</Project>
-      <Name>PersonDataReader.Decorators</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PersonDataReader.Service\PersonDataReader.Service.csproj">
-      <Project>{CA99E8C7-8790-4FA2-9787-C8E5DB9E356E}</Project>
-      <Name>PersonDataReader.Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PersonDataReader.SQL\PersonDataReader.SQL.csproj">
-      <Project>{56AD78D0-092C-4D93-A164-9D76F81ED1FD}</Project>
-      <Name>PersonDataReader.SQL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
 </Project>

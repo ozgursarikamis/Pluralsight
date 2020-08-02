@@ -34,3 +34,12 @@
 /DesignPatterns/Dependency Injection/PeopleViewer.Presentation/obj
 /DesignPatterns/Dependency Injection/PersonDataReader.Service/bin/Debug/netstandard2.0
 /DesignPatterns/Dependency Injection/PersonDataReader.Service/obj
+/DesignPatterns/Dependency Injection/PeopleViewer.View/bin/Debug
+/DesignPatterns/Dependency Injection/PeopleViewer.View/obj/Debug
+/DesignPatterns/Dependency Injection/PersonDataReader.CSV/bin/Debug/netstandard2.0
+/DesignPatterns/Dependency Injection/PersonDataReader.CSV/obj
+/DesignPatterns/Dependency Injection/PersonDataReader.SQL/obj/Debug/netstandard2.0
+/DesignPatterns/Dependency Injection/PersonDataReader.SQL/bin/Debug/netstandard2.0
+/DesignPatterns/Dependency Injection/PersonDataReader.SQL/obj
+/DesignPatterns/Dependency Injection/PersonDataReader.Decorators/obj
+/DesignPatterns/Dependency Injection/PersonDataReader.Decorators/bin/Debug/netstandard2.0

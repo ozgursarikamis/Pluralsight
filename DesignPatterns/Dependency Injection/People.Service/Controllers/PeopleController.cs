@@ -10,7 +10,7 @@ namespace People.Service.Controllers
     [ApiController]
     public class PeopleController : ControllerBase
     {
-        IPeopleProvider provider;
+        private readonly IPeopleProvider provider;
 
         public PeopleController(IPeopleProvider provider)
         {

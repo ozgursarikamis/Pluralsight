@@ -9,8 +9,8 @@ namespace PeopleViewer
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            int year = ((DateTime)value).Year;
-            return string.Format("{0}0s", year.ToString().Substring(0, 3));
+            var year = ((DateTime)value).Year;
+            return $"{year.ToString().Substring(0, 3)}0s";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -23,8 +23,8 @@ namespace PeopleViewer
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            int rating = (int)value;
-            return string.Format("{0}/10 Stars", rating.ToString());
+            var rating = (int)value;
+            return $"{rating.ToString()}/10 Stars";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -37,14 +37,14 @@ namespace PeopleViewer
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            int rating = (int)value;
-            string output = string.Empty;
+            var rating = (int)value;
+            var output = string.Empty;
             return output.PadLeft(rating, '*');
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            string input = (string)value;
+            var input = (string)value;
             //int rating = 0;
 
             //foreach (var ch in input)
