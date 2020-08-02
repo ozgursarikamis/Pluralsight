@@ -105,6 +105,10 @@
       <Project>{d2a03edd-6fc9-423e-837e-4acf551508a8}</Project>
       <Name>PersonDataReader.CSV</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PersonDataReader.Decorators\PersonDataReader.Decorators.csproj">
+      <Project>{9cdea396-fe85-449a-b8ed-d941efb80bf3}</Project>
+      <Name>PersonDataReader.Decorators</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PersonDataReader.Service\PersonDataReader.Service.csproj">
       <Project>{CA99E8C7-8790-4FA2-9787-C8E5DB9E356E}</Project>
       <Name>PersonDataReader.Service</Name>
