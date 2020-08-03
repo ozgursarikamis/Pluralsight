@@ -21,7 +21,8 @@ namespace PeopleViewer.Ninject
 
         private void ConfigureContainer()
         {
-            Container.Bind<IPersonReader>().To<ServiceReader>();
+            // Container.Bind<IPersonReader>().To<ServiceReader>();
+            Container.Bind<IPersonReader>().To<CSVReader>();
         }
 
         private void ComposeObjects()
