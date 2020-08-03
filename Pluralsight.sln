@@ -87,6 +87,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer.Presentation.Tests", "DesignPatterns\Dependency Injection\PeopleViewer.Presentation.Tests\PeopleViewer.Presentation.Tests.csproj", "{B2C0DF96-F330-47E1-9D37-4484FB8387E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonDataReader.CSV.Tests", "DesignPatterns\Dependency Injection\PersonDataReader.CSV.Tests\PersonDataReader.CSV.Tests.csproj", "{CBBBE51B-5779-4E7D-9EAC-02ACB90A7136}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -185,6 +187,10 @@ Global
 		{B2C0DF96-F330-47E1-9D37-4484FB8387E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2C0DF96-F330-47E1-9D37-4484FB8387E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2C0DF96-F330-47E1-9D37-4484FB8387E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBBBE51B-5779-4E7D-9EAC-02ACB90A7136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBBBE51B-5779-4E7D-9EAC-02ACB90A7136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBBBE51B-5779-4E7D-9EAC-02ACB90A7136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBBBE51B-5779-4E7D-9EAC-02ACB90A7136}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -228,6 +234,7 @@ Global
 		{9CDEA396-FE85-449A-B8ED-D941EFB80BF3} = {C3D5F2F8-736B-4DCD-B829-8BFED74BA493}
 		{1CF9E89A-FB68-449C-9B49-13A3836B93C7} = {F676F8FF-ABA5-4C99-96CA-29B666FAEB9F}
 		{B2C0DF96-F330-47E1-9D37-4484FB8387E3} = {1CF9E89A-FB68-449C-9B49-13A3836B93C7}
+		{CBBBE51B-5779-4E7D-9EAC-02ACB90A7136} = {1CF9E89A-FB68-449C-9B49-13A3836B93C7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FCF92DCF-3599-4010-BB06-FFF5E0A25037}

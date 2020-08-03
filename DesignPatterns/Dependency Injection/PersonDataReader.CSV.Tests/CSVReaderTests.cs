@@ -1,0 +1,59 @@
+using System.IO;
+using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace PersonDataReader.CSV.Tests
+{
+    [TestClass]
+    public class CSVReaderTests
+    {
+        [TestMethod]
+        public void GetPeople_WithGoodRecords_ReturnsAllRecords()
+        {
+            var reader = new CSVReader
+            {
+                FileLoader = new FakeFileLoader("Good")
+            };
+
+            var result = reader.GetPeople();
+
+            Assert.AreEqual(2, result.Count());
+        }
+
+        [TestMethod]
+        public void GetPeople_WithNoFile_ThrowsNotFoundException()
+        {
+            var reader = new CSVReader();
+            Assert.ThrowsException<FileNotFoundException>(() =>
+            {
+                reader.GetPeople();
+            });
+        }
+
+        [TestMethod]
+        public void GetPeople_WithSomeBadRecords_ReturnsGoodRecords()
+        {
+            var reader = new CSVReader
+            {
+                FileLoader = new FakeFileLoader("Mixed")
+            };
+
+            var result = reader.GetPeople();
+
+            Assert.AreEqual(2, result.Count());
+        }
+
+        [TestMethod]
+        public void GetPeople_WithOnlyBadRecords_ReturnsEmptyList()
+        {
+            var reader = new CSVReader
+            {
+                FileLoader = new FakeFileLoader("Bad")
+            };
+
+            var result = reader.GetPeople();
+
+            Assert.AreEqual(0, result.Count());
+        }
+    }
+}
