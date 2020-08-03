@@ -1,0 +1,7 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6ed58d9c_002D8683_002D4607_002Da646_002D568601372bfa/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestMethod1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;MSTest::B2C0DF96-F330-47E1-9D37-4484FB8387E3::.NETCoreApp,Version=v3.1::PeopleViewer.Presentation.Tests.PeopleViewModelTests.People_OnRefreshPeople_IsPopulated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::B2C0DF96-F330-47E1-9D37-4484FB8387E3::.NETCoreApp,Version=v3.1::PeopleViewer.Presentation.Tests.PeopleViewModelTests.People_OnClearPeople_IsEmpty&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

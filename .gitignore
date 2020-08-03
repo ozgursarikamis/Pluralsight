@@ -43,3 +43,9 @@
 /DesignPatterns/Dependency Injection/PersonDataReader.SQL/obj
 /DesignPatterns/Dependency Injection/PersonDataReader.Decorators/obj
 /DesignPatterns/Dependency Injection/PersonDataReader.Decorators/bin/Debug/netstandard2.0
+/Web/DI-Steve Gordon/src/TennisBookings.Web/obj/Debug/netcoreapp2.2
+/Web/DI-Steve Gordon/test/TennisBookings.Web.Tests/obj/Debug/netcoreapp2.2
+/Web/DI-Steve Gordon/src/TennisBookings.Web/obj
+/Web/DI-Steve Gordon/test/TennisBookings.Web.Tests/obj
+/DesignPatterns/Dependency Injection/PeopleViewer.Presentation.Tests/bin/Debug/netcoreapp3.1
+/DesignPatterns/Dependency Injection/PeopleViewer.Presentation.Tests/obj
