@@ -22,6 +22,12 @@
 /Api/Polly/Before/PollyBefore/obj/Debug/netcoreapp2.0
 /Api/Polly/Before/PollyBefore/bin/Debug/netcoreapp2.0
 /Api/Polly/Before/PollyBefore/obj
+.idea/.idea.Pluralsight/riderModule.iml
+.idea/.idea.Pluralsight/.idea/vcs.xml
+.idea/.idea.Pluralsight/.idea/misc.xml
+.idea/.idea.Pluralsight/.idea/indexLayout.xml
+.idea/.idea.Pluralsight/.idea/encodings.xml
+.idea/.idea.Pluralsight/.idea/dictionaries/ozgursarikamis.xml
 .vs/Pluralsight/config/applicationhost.config
 /Angular/angular-pluralsight
 /DesignPatterns/Dependency Injection/People.Service/bin/Debug/netcoreapp2.2
@@ -43,3 +49,25 @@
 /DesignPatterns/Dependency Injection/PersonDataReader.SQL/obj
 /DesignPatterns/Dependency Injection/PersonDataReader.Decorators/obj
 /DesignPatterns/Dependency Injection/PersonDataReader.Decorators/bin/Debug/netstandard2.0
+/DesignPatterns/Dependency Injection/PeopleViewer.Autofac/bin/Debug
+/DesignPatterns/Dependency Injection/PeopleViewer.Autofac/obj/Debug
+/DesignPatterns/Dependency Injection/PeopleViewer.Autofac.LateBinding/bin/Debug
+/DesignPatterns/Dependency Injection/PeopleViewer.Autofac.LateBinding/obj/Debug
+/DesignPatterns/Dependency Injection/PeopleViewer.Ninject/bin/Debug
+/DesignPatterns/Dependency Injection/PeopleViewer.Ninject/obj/Debug
+/DesignPatterns/Dependency Injection/PeopleViewer.Presentation.Tests/bin/Debug/netcoreapp3.1
+/DesignPatterns/Dependency Injection/PeopleViewer.Presentation.Tests/obj/Debug/netcoreapp3.1
+/DesignPatterns/Dependency Injection/PersonDataReader.CSV.Tests/bin/Debug/netcoreapp3.1
+/DesignPatterns/Dependency Injection/PersonDataReader.CSV.Tests/obj/Debug/netcoreapp3.1
+/Web/DI-Steve Gordon/src/TennisBookings.Web/obj
+/Web/DI-Steve Gordon/test/TennisBookings.Web.Tests/obj/Debug/netcoreapp2.2
+/DesignPatterns/Dependency Injection/PeopleViewer.Autofac/obj
+/DesignPatterns/Dependency Injection/PeopleViewer.Autofac.LateBinding/obj
+/DesignPatterns/Dependency Injection/PeopleViewer.Ninject/obj
+/DesignPatterns/Dependency Injection/PeopleViewer.Presentation.Tests/obj
+/Web/.DS_Store
+/.DS_Store
+/DesignPatterns/Dependency Injection/PersonDataReader.CSV.Tests/obj
+/Web/DI-Steve Gordon/test/TennisBookings.Web.Tests/obj
+/.idea/.idea.Pluralsight/.idea
+/Api/.DS_Store
