@@ -2,6 +2,7 @@
 using Ninject;
 using PeopleViewer.Common;
 using PersonDataReader.CSV;
+using PersonDataReader.Decorators;
 using PersonDataReader.Service;
 
 namespace PeopleViewer.Ninject
@@ -22,8 +23,10 @@ namespace PeopleViewer.Ninject
         private void ConfigureContainer()
         {
             // Container.Bind<IPersonReader>().To<ServiceReader>();
-            Container.Bind<IPersonReader>().To<CSVReader>()
-                .InSingletonScope(); // Life-time management
+            Container.Bind<IPersonReader>()
+                .To<CachingReader>()
+                .InSingletonScope() // Life-time management
+                .WithConstructorArgument<IPersonReader>(Container.Get<ServiceReader>()); // Decorator
         }
 
         private void ComposeObjects()
