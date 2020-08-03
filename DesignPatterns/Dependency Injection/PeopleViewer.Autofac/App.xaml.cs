@@ -2,6 +2,7 @@
 using Autofac;
 using Autofac.Features.ResolveAnything;
 using PeopleViewer.Common;
+using PersonDataReader.CSV;
 using PersonDataReader.Service;
 
 namespace PeopleViewer.Autofac
@@ -21,7 +22,7 @@ namespace PeopleViewer.Autofac
         private static void ConfigureContainer()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterType<ServiceReader>().As<IPersonReader>()
+            builder.RegisterType<CSVReader>().As<IPersonReader>()
                 .SingleInstance();
 
             builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
