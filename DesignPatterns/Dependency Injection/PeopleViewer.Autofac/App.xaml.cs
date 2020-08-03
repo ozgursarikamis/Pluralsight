@@ -2,6 +2,7 @@
 using Autofac;
 using Autofac.Features.ResolveAnything;
 using PeopleViewer.Common;
+using PeopleViewer.Presentation;
 using PersonDataReader.CSV;
 using PersonDataReader.Service;
 
@@ -24,6 +25,11 @@ namespace PeopleViewer.Autofac
             var builder = new ContainerBuilder();
             builder.RegisterType<CSVReader>().As<IPersonReader>()
                 .SingleInstance();
+
+            // life-time notation:
+            builder.RegisterType<PeopleViewerWindow>().InstancePerDependency();
+            builder.RegisterType<PeopleViewModel>().InstancePerDependency();
+
 
             builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
 
