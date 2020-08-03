@@ -4,6 +4,7 @@ using Autofac.Features.ResolveAnything;
 using PeopleViewer.Common;
 using PeopleViewer.Presentation;
 using PersonDataReader.CSV;
+using PersonDataReader.Decorators;
 using PersonDataReader.Service;
 
 namespace PeopleViewer.Autofac
@@ -29,7 +30,13 @@ namespace PeopleViewer.Autofac
             // life-time notation:
             builder.RegisterType<PeopleViewerWindow>().InstancePerDependency();
             builder.RegisterType<PeopleViewModel>().InstancePerDependency();
+            builder.RegisterType<ServiceReader>()
+                .Named<IPersonReader>("reader") // defining decorator
+                .As<IPersonReader>().SingleInstance();
 
+            // builder is registering decorator:
+            builder.RegisterDecorator<IPersonReader>((c, inner) =>
+                new CachingReader(inner), fromKey: "reader");
 
             builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
 
