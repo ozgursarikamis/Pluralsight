@@ -10,11 +10,11 @@ namespace GameConsole
             {
                 Name = "Sarah"
             };
-            var amrit = new PlayerCharacter(new IronBonesDefence())
+            var amrit = new PlayerCharacter(SpecialDefence.Null)
             {
                 Name = "Amrit"
             };
-            var gentry = new PlayerCharacter(new NullDefence())
+            var gentry = new PlayerCharacter(SpecialDefence.Null)
             {
                 Name = "Gentry"
             };
@@ -27,17 +27,27 @@ namespace GameConsole
         }
     }
 
-    public class NullDefence : SpecialDefence
-    {
-        public override int CalculateDamageReduction(int totalDamage)
-        {
-            return 0; // no operation / 'do nothing' behaviour
-        }
-    }
+    //public class NullDefence : SpecialDefence
+    //{
+    //    public override int CalculateDamageReduction(int totalDamage)
+    //    {
+    //        return 0; // no operation / 'do nothing' behaviour
+    //    }
+    //}
 
     public abstract class SpecialDefence
     {
         public abstract int CalculateDamageReduction(int totalDamage);
+        public static SpecialDefence Null { get; } = new NullDefence();
+
+        public class NullDefence : SpecialDefence
+        {
+            // all developers should agree on what default action should be:
+            public override int CalculateDamageReduction(int totalDamage)
+            {
+                return 0; // no operation / 'do nothing' behaviour
+            }
+        }
     }
 
     public interface ISpecialDefence
