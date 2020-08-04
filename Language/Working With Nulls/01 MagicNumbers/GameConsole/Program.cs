@@ -14,7 +14,7 @@ namespace GameConsole
             {
                 Name = "Amrit"
             };
-            var gentry = new PlayerCharacter(null)
+            var gentry = new PlayerCharacter(new NullDefence())
             {
                 Name = "Gentry"
             };
@@ -24,6 +24,14 @@ namespace GameConsole
             gentry.Hit(10);
 
             Console.ReadLine();
+        }
+    }
+
+    public class NullDefence : ISpecialDefence
+    {
+        public int CalculateDamageReduction(int totalDamage)
+        {
+            return 0; // no operation / 'do nothing' behaviour
         }
     }
 
@@ -61,13 +69,15 @@ namespace GameConsole
 
         public void Hit(int damage)
         {
-            int damageReduction = 0;
-            if (_specialDefence != null)
-            {
-                damageReduction = _specialDefence.CalculateDamageReduction(damage);
-            }
+            //int damageReduction = 0;
+            //if (_specialDefence != null)
+            //{
+            //    damageReduction = _specialDefence.CalculateDamageReduction(damage);
+            //}
 
-            var totalDamageTaken = damage - damageReduction;
+            //var totalDamageTaken = damage - damageReduction;
+
+            int totalDamageTaken = damage - _specialDefence.CalculateDamageReduction(damage);
             Health -= totalDamageTaken;
             Console.WriteLine($"{Name}'s health has been reduced by {totalDamageTaken} to {Health}");
         }
