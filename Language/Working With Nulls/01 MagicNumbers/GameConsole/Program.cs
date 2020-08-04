@@ -35,13 +35,13 @@ namespace GameConsole
         public static void Write(PlayerCharacter player)
         {
             Console.WriteLine(player.Name);
-            if (player.DaysSinceLastLogin == null)
+            if (!player.DaysSinceLastLogin.HasValue)
             {
                 Console.WriteLine("No value for DaysSinceLastLogin");
             }
             else
             {
-                Console.WriteLine(player.DaysSinceLastLogin);
+                Console.WriteLine($"HasValue: {player.DaysSinceLastLogin.Value}");
             }
 
             if (player.DateOfBirth == null)
