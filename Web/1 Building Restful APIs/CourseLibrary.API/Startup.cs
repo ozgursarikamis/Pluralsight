@@ -1,8 +1,7 @@
 using CourseLibrary.API.DbContexts;
 using CourseLibrary.API.Services;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting; 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,7 +42,7 @@ namespace CourseLibrary.API
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthorization(); 
 
             app.UseEndpoints(endpoints =>
             {
