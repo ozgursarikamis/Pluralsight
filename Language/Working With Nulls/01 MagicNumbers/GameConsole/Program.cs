@@ -25,8 +25,9 @@ namespace GameConsole
             DaysSinceLastLogin = null;
         }
         public string Name { get; set; }
-        public Nullable<int> DaysSinceLastLogin { get; set; }
-        public Nullable<DateTime> DateOfBirth { get; set; }
+        public int? DaysSinceLastLogin { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public bool? IsNoob { get; set; }
     }
 
     public class PlayerDisplayer
@@ -50,6 +51,18 @@ namespace GameConsole
             else
             {
                 Console.WriteLine(player.DateOfBirth);
+            }
+
+            if (player.IsNoob == null)
+            {
+                Console.WriteLine("Player newbie status is unknown");
+            } else if (player.IsNoob == true)
+            {
+                Console.WriteLine("Player is newbie");
+            }
+            else
+            {
+                Console.WriteLine("Player is experienced");
             }
         }
     }
