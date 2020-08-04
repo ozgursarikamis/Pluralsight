@@ -5,70 +5,72 @@ namespace GameConsole
     internal class Program
     {
         private static void Main()
-        { 
-            PlayerCharacter[] players = new PlayerCharacter[3]
+        {
+            var sarah = new PlayerCharacter(new DiamondSkinDefence())
             {
-                new PlayerCharacter{ Name = "Sarah" }, 
-                new PlayerCharacter{ }, 
-                null
+                Name = "Sarah"
+            };
+            var amrit = new PlayerCharacter(new IronBonesDefence())
+            {
+                Name = "Amrit"
+            };
+            var gentry = new PlayerCharacter(null)
+            {
+                Name = "Gentry"
             };
 
-            string p1 = players[0]?.Name;
-            string p2 = players[1]?.Name;
-            string p3 = players[2]?.Name;
+            sarah.Hit(10);
+            amrit.Hit(10);
+            gentry.Hit(10);
+
             Console.ReadLine();
+        }
+    }
+
+    public interface ISpecialDefence
+    {
+        int CalculateDamageReduction(int totalDamage);
+    }
+
+    public class IronBonesDefence : ISpecialDefence
+    {
+        public int CalculateDamageReduction(int totalDamage)
+        {
+            return 5;
+        }
+    }
+    public class DiamondSkinDefence : ISpecialDefence
+    {
+        public int CalculateDamageReduction(int totalDamage)
+        {
+            return 1;
         }
     }
 
     public class PlayerCharacter
     {
-        public PlayerCharacter()
+        private readonly ISpecialDefence _specialDefence;
+
+        public PlayerCharacter(ISpecialDefence specialDefence)
         {
-            DateOfBirth = null;
-            DaysSinceLastLogin = null;
+            _specialDefence = specialDefence;
         }
+
         public string Name { get; set; }
-        public int? DaysSinceLastLogin { get; set; }
-        public DateTime? DateOfBirth { get; set; }
-        public bool? IsNoob { get; set; }
-    }
+        public int Health { get; set; } = 100;
 
-    public class PlayerDisplayer
-    {
-        public static void Write(PlayerCharacter player)
+        public void Hit(int damage)
         {
-            Console.WriteLine(player.Name);
-            var days = player.DaysSinceLastLogin ?? -1;
-            Console.WriteLine($"Days : {days}");
-            if (!player.DaysSinceLastLogin.HasValue)
+            int damageReduction = 0;
+            if (_specialDefence != null)
             {
-                Console.WriteLine("No value for DaysSinceLastLogin");
-            }
-            else
-            {
-                Console.WriteLine($"HasValue: {player.DaysSinceLastLogin.Value}");
+                damageReduction = _specialDefence.CalculateDamageReduction(damage);
             }
 
-            if (player.DateOfBirth == null)
-            {
-                Console.WriteLine("No value for DateOfBirth");
-            }
-            else
-            {
-                Console.WriteLine(player.DateOfBirth);
-            }
-
-            if (player.IsNoob == null)
-            {
-                Console.WriteLine("Player newbie status is unknown");
-            } else if (player.IsNoob == true)
-            {
-                Console.WriteLine("Player is newbie");
-            }
-            else
-            {
-                Console.WriteLine("Player is experienced");
-            }
+            var totalDamageTaken = damage - damageReduction;
+            Health -= totalDamageTaken;
+            Console.WriteLine($"{Name}'s health has been reduced by {totalDamageTaken} to {Health}");
         }
     }
+
 }

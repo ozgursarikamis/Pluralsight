@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30320.27
-MinimumVisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A6B6410D-1F41-45D1-B821-14F8897C4DAF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{A35FD53E-772C-49FC-8E8A-29BA7F5A87AB}"
@@ -100,6 +100,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 MagicNumbers", "01 MagicNumbers", "{BD47CEB0-4029-47C7-8501-ADEBDDF5DEFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameConsole", "Language\Working With Nulls\01 MagicNumbers\GameConsole\GameConsole.csproj", "{194894B6-EC58-4CB1-BADE-20B0852B05C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 NullableOfT", "02 NullableOfT", "{FABBB293-51A6-40C8-8181-540DB5863C83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameConsole", "Language\Working With Nulls\02 NullableOfT\GameConsole\GameConsole.csproj", "{0982FE1D-F329-4D4C-94F9-AA987442AFAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -447,6 +451,18 @@ Global
 		{194894B6-EC58-4CB1-BADE-20B0852B05C7}.Release|x64.Build.0 = Release|Any CPU
 		{194894B6-EC58-4CB1-BADE-20B0852B05C7}.Release|x86.ActiveCfg = Release|Any CPU
 		{194894B6-EC58-4CB1-BADE-20B0852B05C7}.Release|x86.Build.0 = Release|Any CPU
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA}.Debug|x64.Build.0 = Debug|Any CPU
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA}.Debug|x86.Build.0 = Debug|Any CPU
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA}.Release|x64.ActiveCfg = Release|Any CPU
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA}.Release|x64.Build.0 = Release|Any CPU
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA}.Release|x86.ActiveCfg = Release|Any CPU
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -497,6 +513,8 @@ Global
 		{68B535D5-FCE5-41EE-A90F-CF6348106F4D} = {91219315-924A-4A2C-9002-73AF521B44F2}
 		{BD47CEB0-4029-47C7-8501-ADEBDDF5DEFC} = {68B535D5-FCE5-41EE-A90F-CF6348106F4D}
 		{194894B6-EC58-4CB1-BADE-20B0852B05C7} = {BD47CEB0-4029-47C7-8501-ADEBDDF5DEFC}
+		{FABBB293-51A6-40C8-8181-540DB5863C83} = {68B535D5-FCE5-41EE-A90F-CF6348106F4D}
+		{0982FE1D-F329-4D4C-94F9-AA987442AFAA} = {FABBB293-51A6-40C8-8181-540DB5863C83}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D5DF27DD-3C63-4B2E-9975-6484A667B6E5}
