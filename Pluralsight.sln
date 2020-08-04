@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30320.27
+VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A6B6410D-1F41-45D1-B821-14F8897C4DAF}"
 EndProject
@@ -107,7 +107,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameConsole", "Language\Wor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Null Basics with CS8", "03 Null Basics with CS8", "{1E291E36-C5C0-4547-9DED-A1A765953286}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NullBasics", "Language\Working With Nulls\03 Null Basics with CS8\NullBasics\NullBasics.csproj", "{108281CB-17F6-4938-9189-68E7F1F97415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NullBasics", "Language\Working With Nulls\03 Null Basics with CS8\NullBasics\NullBasics.csproj", "{108281CB-17F6-4938-9189-68E7F1F97415}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advanced Restful Concerns", "Advanced Restful Concerns", "{393C6B64-3A43-401E-A8C4-372C4F95147C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseLibrary.API", "Web\Advanced Restful Concerns\CourseLibrary.API\CourseLibrary.API.csproj", "{2900C008-F2EC-4A0D-8074-F47EB9F84036}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -479,6 +483,18 @@ Global
 		{108281CB-17F6-4938-9189-68E7F1F97415}.Release|x64.Build.0 = Release|Any CPU
 		{108281CB-17F6-4938-9189-68E7F1F97415}.Release|x86.ActiveCfg = Release|Any CPU
 		{108281CB-17F6-4938-9189-68E7F1F97415}.Release|x86.Build.0 = Release|Any CPU
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036}.Debug|x64.Build.0 = Debug|Any CPU
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036}.Debug|x86.Build.0 = Debug|Any CPU
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036}.Release|x64.ActiveCfg = Release|Any CPU
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036}.Release|x64.Build.0 = Release|Any CPU
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036}.Release|x86.ActiveCfg = Release|Any CPU
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -533,8 +549,10 @@ Global
 		{0982FE1D-F329-4D4C-94F9-AA987442AFAA} = {FABBB293-51A6-40C8-8181-540DB5863C83}
 		{1E291E36-C5C0-4547-9DED-A1A765953286} = {68B535D5-FCE5-41EE-A90F-CF6348106F4D}
 		{108281CB-17F6-4938-9189-68E7F1F97415} = {1E291E36-C5C0-4547-9DED-A1A765953286}
+		{393C6B64-3A43-401E-A8C4-372C4F95147C} = {A6B6410D-1F41-45D1-B821-14F8897C4DAF}
+		{2900C008-F2EC-4A0D-8074-F47EB9F84036} = {393C6B64-3A43-401E-A8C4-372C4F95147C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D5DF27DD-3C63-4B2E-9975-6484A667B6E5}
+		SolutionGuid = {08E0F198-B49E-42B9-9DB8-20DD2062C0CA}
 	EndGlobalSection
 EndGlobal
