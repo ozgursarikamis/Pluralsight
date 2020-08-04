@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using AutoMapper;
-using CourseLibrary.API.Helpers;
 using CourseLibrary.API.Models;
 using CourseLibrary.API.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +32,7 @@ namespace CourseLibrary.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<AuthorDto>> GetAuthors()
         {
+            throw new Exception("Test Exception");
             var authorsFromRepo = _courseLibraryRepository.GetAuthors();
             return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo));
         }
