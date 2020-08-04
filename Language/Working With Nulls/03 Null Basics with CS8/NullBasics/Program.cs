@@ -6,11 +6,28 @@ namespace NullBasics
     {
         private static void Main()
         {
-            string? message = null;
+            var message = new Message
+            {
+                Text = "Hello there",
+                From = null
+            };
+            Console.WriteLine(message.Text);
+            Console.WriteLine(message.From);
+            Console.WriteLine(message.ToUpperFrom());
 
-            Console.WriteLine(message); // string is a reference type, so it can be null.
-            Console.WriteLine("Press Enter to end!");
             Console.ReadLine();
         }
+    }
+
+    public class Message
+    {
+        public string? From { get; set; } = "";
+        public string Text { get; set; } = "";
+
+        public string? ToUpperFrom()
+        {
+            return From is null ? "" : From?.ToUpperInvariant();
+        }
+
     }
 }
