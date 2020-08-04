@@ -6,7 +6,10 @@ namespace NullBasics
     {
         private static void Main()
         {
-            Console.WriteLine("Hello World!");
+            string message = null;
+            Console.WriteLine(message); // string is a reference type, so it can be null.
+            Console.WriteLine("Press Enter to end!");
+            Console.ReadLine();
         }
     }
 }
