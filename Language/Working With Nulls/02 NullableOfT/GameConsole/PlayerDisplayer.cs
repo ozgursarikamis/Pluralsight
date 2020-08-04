@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameConsole
 {
-    class PlayerDisplayer
+    internal class PlayerDisplayer
     {
         public static void Write(PlayerCharacter player)
         {
