@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
-using CourseLibrary.API.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CourseLibrary2.API.Helpers;
+using CourseLibrary2.API.Models;
 
-namespace CourseLibrary.API.Profiles
+namespace CourseLibrary2.API.Profiles
 {
     public class AuthorsProfile : Profile
     {
@@ -19,7 +16,7 @@ namespace CourseLibrary.API.Profiles
                     dest => dest.Age, 
                     opt => opt.MapFrom(src => src.DateOfBirth.GetCurrentAge()));
 
-            CreateMap<Models.AuthorForCreationDto, Entities.Author>();
+            CreateMap<AuthorForCreationDto, Entities.Author>();
         }
     }
 }

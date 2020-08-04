@@ -1,9 +1,9 @@
-﻿using CourseLibrary.API.Entities;
-using CourseLibrary.API.ResourceParameters;
+﻿using CourseLibrary2.API.Entities;
 using System;
 using System.Collections.Generic;
+using CourseLibrary2.API.ResourceParameters;
 
-namespace CourseLibrary.API.Services
+namespace CourseLibrary2.API.Services
 {
     public interface ICourseLibraryRepository
     {    

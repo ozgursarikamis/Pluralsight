@@ -1,8 +1,8 @@
-﻿using CourseLibrary.API.Entities;
+﻿using CourseLibrary2.API.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace CourseLibrary.API.DbContexts
+namespace CourseLibrary2.API.DbContexts
 {
     public class CourseLibraryContext : DbContext
     {

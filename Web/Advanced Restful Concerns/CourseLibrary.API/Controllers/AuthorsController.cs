@@ -1,15 +1,12 @@
-﻿using AutoMapper;
-using CourseLibrary.API.Helpers;
-using CourseLibrary.API.Models;
-using CourseLibrary.API.ResourceParameters;
-using CourseLibrary.API.Services;
+﻿using AutoMapper; 
+using CourseLibrary2.API.Models; 
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CourseLibrary2.API.ResourceParameters;
+using CourseLibrary2.API.Services;
 
-namespace CourseLibrary.API.Controllers
+namespace CourseLibrary2.API.Controllers
 {
     [ApiController]
     [Route("api/authors")]

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CourseLibrary2.API.Models;
 
-namespace CourseLibrary.API.Models
+namespace CourseLibrary2.API.Models
 {
     public class AuthorForCreationDto
     {

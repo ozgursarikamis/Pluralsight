@@ -3,15 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CourseLibrary2.API.Models;
 
-namespace CourseLibrary.API.Profiles
+namespace CourseLibrary2.API.Profiles
 {
     public class CoursesProfile : Profile
     {
         public CoursesProfile()
         {
-            CreateMap<Entities.Course, Models.CourseDto>();
-            CreateMap<Models.CourseForCreationDto, Entities.Course>();
+            CreateMap<Entities.Course, CourseDto>();
+            CreateMap<CourseForCreationDto, Entities.Course>();
             CreateMap<Models.CourseForUpdateDto, Entities.Course>();
             CreateMap<Entities.Course, Models.CourseForUpdateDto>();
         }

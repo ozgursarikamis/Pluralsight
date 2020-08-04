@@ -1,11 +1,7 @@
-﻿using CourseLibrary.API.ValidationAttributes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using CourseLibrary2.API.ValidationAttributes;
 
-namespace CourseLibrary.API.Models
+namespace CourseLibrary2.API.Models
 {
     [CourseTitleMustBeDifferentFromDescription(
           ErrorMessage = "Title must be different from description.")]
