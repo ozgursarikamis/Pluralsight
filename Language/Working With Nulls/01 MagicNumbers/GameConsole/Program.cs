@@ -5,14 +5,17 @@ namespace GameConsole
     internal class Program
     {
         private static void Main()
-        {
-            var player = new PlayerCharacter
+        { 
+            PlayerCharacter[] players = new PlayerCharacter[3]
             {
-                Name = "Sarah", // DaysSinceLastLogin = 42
+                new PlayerCharacter{ Name = "Sarah" }, 
+                new PlayerCharacter{ }, 
+                null
             };
 
-            PlayerDisplayer.Write(player);
-
+            string p1 = players[0]?.Name;
+            string p2 = players[1]?.Name;
+            string p3 = players[2]?.Name;
             Console.ReadLine();
         }
     }
@@ -35,6 +38,8 @@ namespace GameConsole
         public static void Write(PlayerCharacter player)
         {
             Console.WriteLine(player.Name);
+            var days = player.DaysSinceLastLogin ?? -1;
+            Console.WriteLine($"Days : {days}");
             if (!player.DaysSinceLastLogin.HasValue)
             {
                 Console.WriteLine("No value for DaysSinceLastLogin");
