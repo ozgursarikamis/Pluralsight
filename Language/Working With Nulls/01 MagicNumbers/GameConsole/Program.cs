@@ -27,12 +27,17 @@ namespace GameConsole
         }
     }
 
-    public class NullDefence : ISpecialDefence
+    public class NullDefence : SpecialDefence
     {
-        public int CalculateDamageReduction(int totalDamage)
+        public override int CalculateDamageReduction(int totalDamage)
         {
             return 0; // no operation / 'do nothing' behaviour
         }
+    }
+
+    public abstract class SpecialDefence
+    {
+        public abstract int CalculateDamageReduction(int totalDamage);
     }
 
     public interface ISpecialDefence
@@ -40,16 +45,16 @@ namespace GameConsole
         int CalculateDamageReduction(int totalDamage);
     }
 
-    public class IronBonesDefence : ISpecialDefence
+    public class IronBonesDefence : SpecialDefence
     {
-        public int CalculateDamageReduction(int totalDamage)
+        public override int CalculateDamageReduction(int totalDamage)
         {
             return 5;
         }
     }
-    public class DiamondSkinDefence : ISpecialDefence
+    public class DiamondSkinDefence : SpecialDefence
     {
-        public int CalculateDamageReduction(int totalDamage)
+        public override int CalculateDamageReduction(int totalDamage)
         {
             return 1;
         }
@@ -57,9 +62,9 @@ namespace GameConsole
 
     public class PlayerCharacter
     {
-        private readonly ISpecialDefence _specialDefence;
+        private readonly SpecialDefence _specialDefence;
 
-        public PlayerCharacter(ISpecialDefence specialDefence)
+        public PlayerCharacter(SpecialDefence specialDefence)
         {
             _specialDefence = specialDefence;
         }
