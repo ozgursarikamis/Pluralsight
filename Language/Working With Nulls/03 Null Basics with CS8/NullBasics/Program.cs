@@ -9,14 +9,14 @@ namespace NullBasics
         {
             var message = new Message
             {
-                Text = "Hello there",
-                From = null
+                Text = null!,
+                From = null!
             };
             Console.WriteLine(message.Text);
             Console.WriteLine(message.From);
 
             MessagePopulator.Populate(message);
-            Console.WriteLine(message.From.Length);
+            Console.WriteLine(message.From!.Length); // ! : suppress nullable warning.
             Console.WriteLine(message.ToUpperFrom());
 
             Console.ReadLine();
