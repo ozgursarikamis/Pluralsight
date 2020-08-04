@@ -29,10 +29,10 @@ namespace CourseLibrary.API.Controllers
                       throw new ArgumentNullException(nameof(mapper));
         }
 
-        [HttpGet]
+        [HttpGet] 
+        [HttpHead] // HttpHead: Identifies an action that supports HTTP HEAD method
         public ActionResult<IEnumerable<AuthorDto>> GetAuthors()
         {
-            throw new Exception("Test Exception");
             var authorsFromRepo = _courseLibraryRepository.GetAuthors();
             return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo));
         }
