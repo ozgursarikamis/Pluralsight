@@ -1,3 +1,5 @@
+using System;
+using AutoMapper;
 using CourseLibrary.API.DbContexts;
 using CourseLibrary.API.Services;
 using Microsoft.AspNetCore.Builder;
@@ -24,12 +26,14 @@ namespace CourseLibrary.API
             services.AddControllers(setUpAction =>
                 {
                     setUpAction.ReturnHttpNotAcceptable = true;
-                    // support XML also 
+                    // throw Http 406
                     // setUpAction.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
                 })
+                // support XML also 
                 // as of .net core 2.2:
                 .AddXmlDataContractSerializerFormatters();
-             
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<ICourseLibraryRepository, CourseLibraryRepository>();
 
             services.AddDbContext<CourseLibraryContext>(options =>
