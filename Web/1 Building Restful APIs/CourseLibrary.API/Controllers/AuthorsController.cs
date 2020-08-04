@@ -27,7 +27,7 @@ namespace CourseLibrary.API.Controllers
             _courseLibraryRepository = courseLibraryRepository ??
                                        throw new ArgumentNullException(nameof(courseLibraryRepository));
             _mapper = mapper ??
-                      throw new ArgumentNullException(nameof(courseLibraryRepository));
+                      throw new ArgumentNullException(nameof(mapper));
         }
 
         [HttpGet]
@@ -40,12 +40,12 @@ namespace CourseLibrary.API.Controllers
         [HttpGet("{authorId:guid}")]
         public IActionResult GetAuthor(Guid authorId)
         {
-            var authorsFromRepo = _courseLibraryRepository.GetAuthor(authorId);
-            if (authorsFromRepo == null)
+            var authorFromRepo = _courseLibraryRepository.GetAuthor(authorId);
+            if (authorFromRepo == null)
             {
                 return NotFound("Author Not Found");
             }
-            return Ok(authorsFromRepo);
+            return Ok(_mapper.Map<AuthorDto>(authorFromRepo));
         }
-    } 
+    }
 }

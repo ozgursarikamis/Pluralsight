@@ -19,4 +19,12 @@ namespace CourseLibrary.API.Profiles
                 ;
         }
     }
+
+    public class CoursesProfile : Profile
+    {
+        public CoursesProfile()
+        {
+            CreateMap<Course, CoursesDto>();
+        }
+    }
 }
