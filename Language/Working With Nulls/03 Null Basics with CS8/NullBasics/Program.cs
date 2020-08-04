@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace NullBasics
 {
@@ -13,6 +14,9 @@ namespace NullBasics
             };
             Console.WriteLine(message.Text);
             Console.WriteLine(message.From);
+
+            MessagePopulator.Populate(message);
+            Console.WriteLine(message.From.Length);
             Console.WriteLine(message.ToUpperFrom());
 
             Console.ReadLine();
@@ -29,5 +33,16 @@ namespace NullBasics
             return From is null ? "" : From?.ToUpperInvariant();
         }
 
+    }
+
+    public class MessagePopulator
+    {
+        public static void Populate(Message message)
+        {
+            message.GetType().InvokeMember("From",
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.SetProperty,
+                Type.DefaultBinder, message, new[] {"Jason (set using reflection) "}
+            );
+        }
     }
 }
