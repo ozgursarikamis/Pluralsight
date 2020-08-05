@@ -10,11 +10,11 @@ namespace CourseLibrary.API.Models
         public string MainCategory { get; set; }
     }
 
-    public class CoursesDto
+    public class AuthorForCreationDto
     {
-        public Guid Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public Guid AuthorId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTimeOffset DateOfBirth { get; set; }
+        public string MainCategory { get; set; }
     }
 }
