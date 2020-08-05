@@ -11,8 +11,8 @@ namespace CourseLibrary.API.ValidationAttributes
             var course = (CourseForCreationDto)validationContext.ObjectInstance;
             if (course.Title == course.Description)
             {
-                return new ValidationResult(
-                    "The provided description should be different from the title",
+                return new ValidationResult(ErrorMessage,
+                    // "The provided description should be different from the title",
                     new[] {nameof(CourseForCreationDto)}
                 );
             }
