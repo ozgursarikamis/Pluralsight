@@ -166,7 +166,7 @@ namespace CourseLibrary.API.Services
 
             return _context.Authors.Where(a => authorIds.Contains(a.Id))
                 .OrderBy(a => a.FirstName)
-                .OrderBy(a => a.LastName)
+                .ThenBy(a => a.LastName)
                 .ToList();
         }
 
@@ -177,7 +177,7 @@ namespace CourseLibrary.API.Services
 
         public bool Save()
         {
-            return (_context.SaveChanges() >= 0);
+            return _context.SaveChanges() >= 0;
         }
 
         public void Dispose()
