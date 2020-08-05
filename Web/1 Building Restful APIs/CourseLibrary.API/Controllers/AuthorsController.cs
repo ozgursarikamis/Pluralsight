@@ -31,9 +31,12 @@ namespace CourseLibrary.API.Controllers
 
         [HttpGet] 
         [HttpHead] // HttpHead: Identifies an action that supports HTTP HEAD method
-        public ActionResult<IEnumerable<AuthorDto>> GetAuthors()
+        public ActionResult<IEnumerable<AuthorDto>> GetAuthors(
+            // [FromQuery(Name = "")]
+            string mainCategory
+        )
         {
-            var authorsFromRepo = _courseLibraryRepository.GetAuthors();
+            var authorsFromRepo = _courseLibraryRepository.GetAuthors(mainCategory);
             return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo));
         }
 
