@@ -3,6 +3,7 @@ using CourseLibrary.API.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CourseLibrary.API.ResourceParameters;
 
 namespace CourseLibrary.API.Services
 {
@@ -119,11 +120,19 @@ namespace CourseLibrary.API.Services
 
         public IEnumerable<Author> GetAuthors()
         {
-            return _context.Authors.ToList<Author>();
+            return _context.Authors.ToList();
         }
 
-        public IEnumerable<Author> GetAuthors(string mainCategory, string searchQuery)
+        public IEnumerable<Author> GetAuthors(AuthorsResourceParameters authorsResourceParameters)
         {
+            if (authorsResourceParameters == null)
+            {
+                throw new ArgumentNullException(nameof(authorsResourceParameters));
+            }
+
+            var mainCategory = authorsResourceParameters.MainCategory;
+            var searchQuery = authorsResourceParameters.SearchQuery;
+
             if (string.IsNullOrEmpty(mainCategory) && string.IsNullOrEmpty(searchQuery))
             {
                 return GetAuthors();

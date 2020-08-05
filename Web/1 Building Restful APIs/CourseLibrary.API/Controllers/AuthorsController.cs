@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AutoMapper;
 using CourseLibrary.API.Models;
+using CourseLibrary.API.ResourceParameters;
 using CourseLibrary.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,10 +34,10 @@ namespace CourseLibrary.API.Controllers
         [HttpHead] // HttpHead: Identifies an action that supports HTTP HEAD method
         public ActionResult<IEnumerable<AuthorDto>> GetAuthors(
             // [FromQuery(Name = "")]
-            string mainCategory, string searchQuery
+            AuthorsResourceParameters authorsResourceParameters
         )
         {
-            var authorsFromRepo = _courseLibraryRepository.GetAuthors(mainCategory, searchQuery);
+            var authorsFromRepo = _courseLibraryRepository.GetAuthors(authorsResourceParameters);
             return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo));
         }
 
