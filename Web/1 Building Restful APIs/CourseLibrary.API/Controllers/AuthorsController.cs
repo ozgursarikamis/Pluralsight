@@ -33,8 +33,7 @@ namespace CourseLibrary.API.Controllers
         [HttpGet] 
         [HttpHead] // HttpHead: Identifies an action that supports HTTP HEAD method
         public ActionResult<IEnumerable<AuthorDto>> GetAuthors(
-            // [FromQuery(Name = "")]
-            AuthorsResourceParameters authorsResourceParameters
+            [FromQuery] AuthorsResourceParameters authorsResourceParameters
         )
         {
             var authorsFromRepo = _courseLibraryRepository.GetAuthors(authorsResourceParameters);
