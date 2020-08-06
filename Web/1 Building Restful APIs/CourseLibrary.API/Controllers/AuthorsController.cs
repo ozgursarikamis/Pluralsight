@@ -35,7 +35,7 @@ namespace CourseLibrary.API.Controllers
 
         [HttpGet(Name = "GetAuthors")] 
         [HttpHead] // HttpHead: Identifies an action that supports HTTP HEAD method
-        public ActionResult<IEnumerable<AuthorDto>> GetAuthors(
+        public IActionResult GetAuthors(
             [FromQuery] AuthorsResourceParameters parameters
         )
         {
@@ -61,7 +61,10 @@ namespace CourseLibrary.API.Controllers
 
             Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
 
-            return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo));
+            return Ok(
+                _mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo)
+                    .ShapeData(parameters.Fields)
+                );
         }
 
         [HttpGet("{authorId:guid}", Name = "GetAuthor")]
@@ -116,6 +119,8 @@ namespace CourseLibrary.API.Controllers
                 ResourceUriType.PreviousPage => Url.Link("GetAuthors",
                     new
                     {
+                        fields = parameters.Fields,
+                        orderBy = parameters.OrderBy,
                         pageNumber = parameters.PageNumber - 1,
                         pageSize = parameters.PageSize,
                         mainCategory = parameters.MainCategory,
@@ -124,6 +129,8 @@ namespace CourseLibrary.API.Controllers
                 ResourceUriType.NextPage => Url.Link("GetAuthors",
                     new
                     {
+                        fields = parameters.Fields,
+                        orderBy = parameters.OrderBy,
                         pageNumber = parameters.PageNumber + 1,
                         pageSize = parameters.PageSize,
                         mainCategory = parameters.MainCategory,
@@ -132,6 +139,8 @@ namespace CourseLibrary.API.Controllers
                 _ => Url.Link("GetAuthors",
                     new
                     {
+                        fields = parameters.Fields,
+                        orderBy = parameters.OrderBy,
                         pageNumber = parameters.PageNumber,
                         pageSize = parameters.PageSize,
                         mainCategory = parameters.MainCategory,
