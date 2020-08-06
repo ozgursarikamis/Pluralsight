@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29009.5
+VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A6B6410D-1F41-45D1-B821-14F8897C4DAF}"
 EndProject
@@ -115,7 +115,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseLibrary2.API", "Web\A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Building Restful APIs", "1 Building Restful APIs", "{C37DE2DF-372F-4527-BE83-EEBEB5CE792D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseLibrary.API", "Web\1 Building Restful APIs\CourseLibrary.API\CourseLibrary.API.csproj", "{A2DDAEA3-6297-49F2-991C-F72785EFF6C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseLibrary.API", "Web\1 Building Restful APIs\CourseLibrary.API\CourseLibrary.API.csproj", "{A2DDAEA3-6297-49F2-991C-F72785EFF6C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GraphQL", "GraphQL", "{DF1E31BE-3B35-4674-BD4A-8848C052D094}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarvedRock.Api", "Api\GraphQL\CarvedRock.Api\CarvedRock.Api.csproj", "{81C7A112-94D5-40C7-B28A-2C2356E71B0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -511,6 +515,18 @@ Global
 		{A2DDAEA3-6297-49F2-991C-F72785EFF6C3}.Release|x64.Build.0 = Release|Any CPU
 		{A2DDAEA3-6297-49F2-991C-F72785EFF6C3}.Release|x86.ActiveCfg = Release|Any CPU
 		{A2DDAEA3-6297-49F2-991C-F72785EFF6C3}.Release|x86.Build.0 = Release|Any CPU
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E}.Debug|x64.Build.0 = Debug|Any CPU
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E}.Debug|x86.Build.0 = Debug|Any CPU
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E}.Release|x64.ActiveCfg = Release|Any CPU
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E}.Release|x64.Build.0 = Release|Any CPU
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E}.Release|x86.ActiveCfg = Release|Any CPU
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -569,8 +585,10 @@ Global
 		{2900C008-F2EC-4A0D-8074-F47EB9F84036} = {393C6B64-3A43-401E-A8C4-372C4F95147C}
 		{C37DE2DF-372F-4527-BE83-EEBEB5CE792D} = {A6B6410D-1F41-45D1-B821-14F8897C4DAF}
 		{A2DDAEA3-6297-49F2-991C-F72785EFF6C3} = {C37DE2DF-372F-4527-BE83-EEBEB5CE792D}
+		{DF1E31BE-3B35-4674-BD4A-8848C052D094} = {A35FD53E-772C-49FC-8E8A-29BA7F5A87AB}
+		{81C7A112-94D5-40C7-B28A-2C2356E71B0E} = {DF1E31BE-3B35-4674-BD4A-8848C052D094}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {08E0F198-B49E-42B9-9DB8-20DD2062C0CA}
+		SolutionGuid = {3596467E-00E0-4519-8FD6-11F3A4805E8D}
 	EndGlobalSection
 EndGlobal
