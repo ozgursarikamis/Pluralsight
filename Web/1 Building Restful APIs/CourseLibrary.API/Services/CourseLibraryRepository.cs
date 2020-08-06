@@ -133,10 +133,10 @@ namespace CourseLibrary.API.Services
             var mainCategory = authorsResourceParameters.MainCategory;
             var searchQuery = authorsResourceParameters.SearchQuery;
 
-            if (string.IsNullOrEmpty(mainCategory) && string.IsNullOrEmpty(searchQuery))
-            {
-                return GetAuthors();
-            }
+            //if (string.IsNullOrEmpty(mainCategory) && string.IsNullOrEmpty(searchQuery))
+            //{
+            //    return GetAuthors();
+            //}
 
             // prepare for deferred execution:
             var collection = _context.Authors as IQueryable<Author>;
@@ -154,7 +154,10 @@ namespace CourseLibrary.API.Services
                                                    || x.LastName.Contains(searchQuery));
             }
 
-            return collection.ToList();
+            return collection
+                .Skip(authorsResourceParameters.PageSize * (authorsResourceParameters.PageNumber - 1))
+                .Take(authorsResourceParameters.PageSize)
+                .ToList();
         }
          
         public IEnumerable<Author> GetAuthors(IEnumerable<Guid> authorIds)
