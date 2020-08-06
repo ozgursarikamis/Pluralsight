@@ -6,6 +6,10 @@ using CourseLibrary.API.Models;
 using CourseLibrary.API.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace CourseLibrary.API.Controllers
 {
@@ -140,6 +144,15 @@ namespace CourseLibrary.API.Controllers
             _courseLibraryRepository.Save();
             
             return NoContent();
+        }
+
+        public override ActionResult ValidationProblem(
+            [ActionResultObjectValue] ModelStateDictionary modelStateDictionary)
+        {
+            var options = HttpContext.RequestServices
+                .GetRequiredService<IOptions<ApiBehaviorOptions>>();
+            return (ActionResult)
+                options.Value.InvalidModelStateResponseFactory(ControllerContext);
         }
     }
 }
