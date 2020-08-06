@@ -38,7 +38,7 @@ namespace CourseLibrary.API
                 .AddXmlDataContractSerializerFormatters()
                 .AddNewtonsoftJson(setupAction =>
                 {
-                    setupAction.SerializerSettings.ContractResolver = 
+                    setupAction.SerializerSettings.ContractResolver =
                         new CamelCasePropertyNamesContractResolver();
                 })
                 .ConfigureApiBehaviorOptions(setupAction =>
