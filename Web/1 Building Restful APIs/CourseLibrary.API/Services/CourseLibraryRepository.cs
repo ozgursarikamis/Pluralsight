@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CourseLibrary.API.Helpers;
+using CourseLibrary.API.Models;
 using CourseLibrary.API.ResourceParameters;
 
 namespace CourseLibrary.API.Services
@@ -11,10 +12,16 @@ namespace CourseLibrary.API.Services
     public class CourseLibraryRepository : ICourseLibraryRepository, IDisposable
     {
         private readonly CourseLibraryContext _context;
+        private readonly IPropertyMappingService _propertyMappingService;
 
-        public CourseLibraryRepository(CourseLibraryContext context )
+        public CourseLibraryRepository(
+            CourseLibraryContext context,
+            IPropertyMappingService propertyMappingService
+            )
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _propertyMappingService = propertyMappingService
+                                      ?? throw new ArgumentNullException(nameof(propertyMappingService));
         }
 
         public void AddCourse(Guid authorId, Course course)
@@ -150,11 +157,33 @@ namespace CourseLibrary.API.Services
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 searchQuery = searchQuery.Trim();
+                var query = searchQuery;
+                collection = collection.Where(x => x.MainCategory.Contains(query)
+                                                   || x.FirstName.Contains(query)
+                                                   || x.LastName.Contains(query));
+            }
+
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                searchQuery = searchQuery.Trim();
                 collection = collection.Where(x => x.MainCategory.Contains(searchQuery)
                                                    || x.FirstName.Contains(searchQuery)
                                                    || x.LastName.Contains(searchQuery));
             }
 
+            if (!string.IsNullOrWhiteSpace(parameter.OrderBy))
+            {
+                if (parameter.OrderBy.ToLowerInvariant() == "name")
+                {
+                    collection = collection.OrderBy(x => x.FirstName)
+                        .ThenBy(x => x.LastName);
+                }
+
+                var authorPropertyMappingDictionary =
+                    _propertyMappingService.GetPropertyMapping<AuthorDto, Author>();
+
+                collection.ApplySort(parameter.OrderBy, authorPropertyMappingDictionary);
+            }
             return PagedList<Author>.Create(collection, 
                 parameter.PageNumber,
                 parameter.PageSize);
