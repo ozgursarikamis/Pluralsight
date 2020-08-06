@@ -23,10 +23,10 @@ namespace CourseLibrary.API.Controllers
         public CoursesController(IMapper mapper, ICourseLibraryRepository courseLibraryRepository)
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-            _courseLibraryRepository = courseLibraryRepository ?? throw new ArgumentNullException(nameof(courseLibraryRepository)); ;
+            _courseLibraryRepository = courseLibraryRepository ?? throw new ArgumentNullException(nameof(courseLibraryRepository));
         }
 
-        [HttpGet]
+        [HttpGet(Name = "GetCoursesForAuthor")]
         public ActionResult<IEnumerable<CourseDto>> GetCoursesForAuthor(Guid authorId)
         {
             if (!_courseLibraryRepository.AuthorExists(authorId))
@@ -56,7 +56,7 @@ namespace CourseLibrary.API.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost(Name = "CreateCourseForAuthor")]
         public ActionResult<CourseDto> CreateCourseForAuthor(
             Guid authorId,CourseForCreationDto course
             )
