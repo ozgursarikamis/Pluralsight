@@ -33,14 +33,14 @@ namespace CourseLibrary.API
                     // throw Http 406
                     // setUpAction.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
                 })
-                // support XML also 
-                // as of .net core 2.2:
-                .AddXmlDataContractSerializerFormatters()
                 .AddNewtonsoftJson(setupAction =>
                 {
                     setupAction.SerializerSettings.ContractResolver =
                         new CamelCasePropertyNamesContractResolver();
                 })
+                // support XML also 
+                // as of .net core 2.2:
+                .AddXmlDataContractSerializerFormatters()
                 .ConfigureApiBehaviorOptions(setupAction =>
                 {
                     setupAction.InvalidModelStateResponseFactory = context =>
