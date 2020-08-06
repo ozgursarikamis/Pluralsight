@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Serialization;
 
 namespace CourseLibrary.API
 {
@@ -35,6 +36,11 @@ namespace CourseLibrary.API
                 // support XML also 
                 // as of .net core 2.2:
                 .AddXmlDataContractSerializerFormatters()
+                .AddNewtonsoftJson(setupAction =>
+                {
+                    setupAction.SerializerSettings.ContractResolver = 
+                        new CamelCasePropertyNamesContractResolver();
+                })
                 .ConfigureApiBehaviorOptions(setupAction =>
                 {
                     setupAction.InvalidModelStateResponseFactory = context =>
