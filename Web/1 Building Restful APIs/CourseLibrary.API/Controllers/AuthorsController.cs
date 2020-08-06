@@ -21,16 +21,23 @@ namespace CourseLibrary.API.Controllers
     {
         private readonly ICourseLibraryRepository _courseLibraryRepository;
         private readonly IMapper _mapper;
+        private readonly IPropertyCheckerService _propertyCheckerService;
+        private readonly IPropertyMappingService _propertyMappingService;
 
         public AuthorsController(
             ICourseLibraryRepository courseLibraryRepository,
-            IMapper mapper
-            )
+            IMapper mapper,
+            IPropertyCheckerService propertyCheckerService, IPropertyMappingService propertyMappingService)
         { 
             _courseLibraryRepository = courseLibraryRepository ??
                                        throw new ArgumentNullException(nameof(courseLibraryRepository));
             _mapper = mapper ??
                       throw new ArgumentNullException(nameof(mapper));
+
+            _propertyCheckerService = propertyCheckerService ??
+                                      throw new ArgumentNullException(nameof(propertyCheckerService));
+            _propertyMappingService = propertyMappingService ??
+                                      throw new ArgumentNullException(nameof(propertyCheckerService));
         }
 
         [HttpGet(Name = "GetAuthors")] 
@@ -39,42 +46,61 @@ namespace CourseLibrary.API.Controllers
             [FromQuery] AuthorsResourceParameters parameters
         )
         {
-            var authorsFromRepo = _courseLibraryRepository
-                .GetAuthors(parameters);
+            if (!_propertyMappingService.ValidMappingExistsFor<AuthorDto, Author>
+                (parameters.OrderBy))
+            {
+                return BadRequest();
+            }
 
-            var previousPageLink = authorsFromRepo.HasPrevious
-                ? CreateAuthorsResourceUri(parameters, ResourceUriType.PreviousPage)
-                : null;
-            var nextPageLink = authorsFromRepo.HasNext
-                ? CreateAuthorsResourceUri(parameters, ResourceUriType.NextPage)
-                : null;
+            if (!_propertyCheckerService.TypeHasProperties<AuthorDto>
+              (parameters.Fields))
+            {
+                return BadRequest();
+            }
+
+            var authorsFromRepo = _courseLibraryRepository.GetAuthors(parameters);
+
+            var previousPageLink = authorsFromRepo.HasPrevious ? 
+                CreateAuthorsResourceUri(parameters,
+                ResourceUriType.PreviousPage) : null;
+
+            var nextPageLink = authorsFromRepo.HasNext ? 
+                CreateAuthorsResourceUri(parameters,
+                ResourceUriType.NextPage) : null;
 
             var paginationMetadata = new
             {
-                authorsFromRepo.TotalCount,
-                authorsFromRepo.PageSize,
-                authorsFromRepo.CurrentPage,
-                authorsFromRepo.TotalPages,
-                PreviousPageLink = previousPageLink,
-                NextPageLink = nextPageLink
+                totalCount = authorsFromRepo.TotalCount,
+                pageSize = authorsFromRepo.PageSize,
+                currentPage = authorsFromRepo.CurrentPage,
+                totalPages = authorsFromRepo.TotalPages,
+                previousPageLink,
+                nextPageLink
             };
 
-            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
+            Response.Headers.Add("X-Pagination",
+                JsonSerializer.Serialize(paginationMetadata));
 
-            return Ok(
-                _mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo)
-                    .ShapeData(parameters.Fields)
-                );
+            return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo)
+                .ShapeData(parameters.Fields));
         }
 
         [HttpGet("{authorId:guid}", Name = "GetAuthor")]
         public IActionResult GetAuthor(Guid authorId, string fields)
         {
+            if (!_propertyCheckerService.TypeHasProperties<AuthorDto>
+                (fields))
+            {
+                return BadRequest();
+            }
+
             var authorFromRepo = _courseLibraryRepository.GetAuthor(authorId);
+
             if (authorFromRepo == null)
             {
-                return NotFound("Author Not Found");
+                return NotFound();
             }
+
             return Ok(_mapper.Map<AuthorDto>(authorFromRepo).ShapeData(fields));
         }
 
