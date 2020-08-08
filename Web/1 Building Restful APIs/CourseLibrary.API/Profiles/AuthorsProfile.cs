@@ -11,14 +11,15 @@ namespace CourseLibrary.API.Profiles
         {
             CreateMap<Author, AuthorDto>()
                 .ForMember(
-                    dest => dest.Name, 
+                    dest => dest.Name,
                     opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
                 .ForMember(
-                    dest => dest.Age, 
-                    opt => opt.MapFrom(src => src.DateOfBirth.GetCurrentAge()))
-                ;
+                    dest => dest.Age,
+                    opt => opt.MapFrom(src =>
+                        src.DateOfBirth.GetCurrentAge(src.DateOfDeath)));
 
             CreateMap<AuthorForCreationDto, Author>();
+            CreateMap<AuthorForCreationWithDateOfDeathDto, Author>();
             CreateMap<Author, AuthorFullDto>();
         }
     }

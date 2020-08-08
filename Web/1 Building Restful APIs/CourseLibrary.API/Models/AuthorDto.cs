@@ -21,6 +21,11 @@ namespace CourseLibrary.API.Models
          = new List<CourseForCreationDto>();
     }
 
+    public class AuthorForCreationWithDateOfDeathDto : AuthorForCreationDto
+    {
+        public DateTimeOffset? DateOfDeath { get; set; }
+    }
+
     public class AuthorFullDto
     {
         public Guid Id { get; set; }
