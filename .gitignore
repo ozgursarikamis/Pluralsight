@@ -101,3 +101,5 @@
 /Web/Advanced Restful Concerns/CourseLibrary.API/obj
 /Web/1 Building Restful APIs/CourseLibrary.API/obj
 /Web/1 Building Restful APIs/CourseLibrary.API/bin/Debug/netcoreapp3.1
+/Api/GraphQL/CarvedRock.Api/bin/Debug/netcoreapp2.1
+/Api/GraphQL/CarvedRock.Api/obj
