@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 using AutoMapper;
 using CourseLibrary.API.Entities;
@@ -60,29 +61,40 @@ namespace CourseLibrary.API.Controllers
 
             var authorsFromRepo = _courseLibraryRepository.GetAuthors(parameters);
 
-            var previousPageLink = authorsFromRepo.HasPrevious ? 
-                CreateAuthorsResourceUri(parameters,
-                ResourceUriType.PreviousPage) : null;
-
-            var nextPageLink = authorsFromRepo.HasNext ? 
-                CreateAuthorsResourceUri(parameters,
-                ResourceUriType.NextPage) : null;
-
             var paginationMetadata = new
             {
                 totalCount = authorsFromRepo.TotalCount,
                 pageSize = authorsFromRepo.PageSize,
                 currentPage = authorsFromRepo.CurrentPage,
-                totalPages = authorsFromRepo.TotalPages,
-                previousPageLink,
-                nextPageLink
+                totalPages = authorsFromRepo.TotalPages
             };
 
             Response.Headers.Add("X-Pagination",
                 JsonSerializer.Serialize(paginationMetadata));
 
-            return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo)
-                .ShapeData(parameters.Fields));
+            var links = CreateLinksForAuthors(
+                    parameters,
+                    authorsFromRepo.HasNext,
+                    authorsFromRepo.HasPrevious)
+                .ShapeData(parameters.Fields);
+
+            var shapedAuthors = _mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo)
+                .ShapeData(parameters.Fields);
+
+            var shapedAuthorsWithLinks = shapedAuthors.Select(author =>
+            {
+                var authorAsDictionary = author as IDictionary<string, object>;
+                var authorLinks = CreateLinksForAuthor((Guid) authorAsDictionary["Id"], null);
+                authorAsDictionary.Add("links", authorLinks);
+                return authorAsDictionary;
+            });
+
+            var linkedCollectionResource = new
+            {
+                value = shapedAuthorsWithLinks,
+                links
+            };
+            return Ok(linkedCollectionResource);
         }
 
         [HttpGet("{authorId:guid}", Name = "GetAuthor")]
@@ -215,6 +227,40 @@ namespace CourseLibrary.API.Controllers
             links.Add(getCoursesForAuthorLink);
 
             return links;
+        }
+
+        private IEnumerable<LinkDto> CreateLinksForAuthors(
+            AuthorsResourceParameters parameters, bool hasNext, bool hasPrevious
+        )
+        {
+            var links = new List<LinkDto>();
+
+            // self:
+            links.Add(new LinkDto(
+                CreateAuthorsResourceUri(parameters, ResourceUriType.Current),
+                "self", "GET"
+            ));
+
+            if (hasNext)
+            {
+                links.Add(new LinkDto(
+
+                    CreateAuthorsResourceUri(parameters, ResourceUriType.NextPage),
+                    "nextPage", "GET"
+                ));
+            }
+
+            if (hasPrevious)
+            {
+                links.Add(new LinkDto(
+
+                    CreateAuthorsResourceUri(parameters, ResourceUriType.PreviousPage),
+                    "previousPage", "GET"
+                ));
+            }
+
+            return links;
+
         }
     }
 }
