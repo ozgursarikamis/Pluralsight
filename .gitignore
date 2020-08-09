@@ -103,3 +103,8 @@
 /Web/1 Building Restful APIs/CourseLibrary.API/bin/Debug/netcoreapp3.1
 /Api/GraphQL/CarvedRock.Api/bin/Debug/netcoreapp2.1
 /Api/GraphQL/CarvedRock.Api/obj
+/Testing/AutoFixture/Fixture/obj
+/Testing/AutoFixture/Fixture/bin/Debug/netstandard2.0
+/Testing/AutoFixture/Fixture.Tests/bin/Debug/netcoreapp3.1
+/Testing/AutoFixture/Fixture.Tests/obj/Debug/netcoreapp3.1
+/Testing/AutoFixture/Fixture.Tests/obj
