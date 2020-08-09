@@ -1,6 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6ed58d9c_002D8683_002D4607_002Da646_002D568601372bfa/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestMethod1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Not&gt;&#xD;
-    &lt;Category&gt;&amp;lt;Uncategorized&amp;gt;&lt;/Category&gt;&#xD;
-  &lt;/Not&gt;&#xD;
+	
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9dc4ce5d_002D1785_002D4d54_002D979a_002Da20fafc64654/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Ints" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::2D87A477-8A9E-4900-9374-0DC0D2A8C525::.NETCoreApp,Version=v3.1::Fixture.Tests.NumberDemos.Ints&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
