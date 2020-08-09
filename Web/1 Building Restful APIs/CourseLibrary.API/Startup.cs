@@ -33,6 +33,12 @@ namespace CourseLibrary.API
             services.AddControllers(setUpAction =>
                 {
                     setUpAction.ReturnHttpNotAcceptable = true;
+                    setUpAction.CacheProfiles.Add("240SecondsCacheProfile",
+                        new CacheProfile
+                        {
+                            Location = ResponseCacheLocation.Client,
+                            Duration = 240
+                        });
                     // throw Http 406
                     // setUpAction.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
                 })
