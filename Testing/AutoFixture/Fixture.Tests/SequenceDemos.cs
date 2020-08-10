@@ -43,7 +43,6 @@ namespace Fixture.Tests
             var rnd = new Random();
 
             fixture.AddManyTo(sut.Messages, () => rnd.Next().ToString());
-        }
-
+        } 
     }
 }
