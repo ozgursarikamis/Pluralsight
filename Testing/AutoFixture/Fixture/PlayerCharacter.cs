@@ -10,6 +10,7 @@ namespace Fixture
         [StringLength(8)]
         public string GameCharacterName { get; set; }
 
+        [Range(0, 50)]
         public int CurrentHealth { get; set; }
     }
 }
