@@ -63,8 +63,7 @@ namespace Fixture.Tests
         {
             var fixture = new AutoFixture.Fixture();
             var flight = fixture.Build<FlightDetails>()
-                .Without(x => x.ArrivalAirportCode)
-                .Without(x => x.DepartureAirportCode)
+                .OmitAutoProperties()
                 .Create();
         }
     }
