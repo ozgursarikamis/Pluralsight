@@ -44,5 +44,21 @@ namespace Fixture.Tests
             var string1 = fixture.Create<string>();
             var string2 = fixture.Create<string>();
         }
+
+        [Fact]
+        public void FreezingValues()
+        {
+            var fixture = new AutoFixture.Fixture();
+            
+            var id = fixture.Create<int>();
+            fixture.Inject(id);
+
+            var customerName = fixture.Create<string>();
+            fixture.Inject(customerName);
+
+            var sut = fixture.Create<Order>();
+
+            Assert.Equal(id + "-" + customerName, sut.ToString());
+        }
     }
 }
