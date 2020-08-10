@@ -6,8 +6,14 @@ namespace AutoFixtureProjects.Maintenance
 {
     public class EmailMessageBuffer
     {
+
         private readonly List<EmailMessage> _emails = new List<EmailMessage>();
-        
+        public EmailMessageBuffer(IEmailGateway emailGateway)
+        {
+            EmailGateway = emailGateway;
+        }
+
+        public IEmailGateway EmailGateway { get; }
         public int UnsentMessagesCount => _emails.Count;
 
         public void Add(EmailMessage message)
@@ -37,10 +43,9 @@ namespace AutoFixtureProjects.Maintenance
             }
         }
 
-        private static void Send(EmailMessage email)
+        private void Send(EmailMessage email)
         {
-            // simulate sending email
-            Debug.WriteLine("Sending email to: " + email.ToAddress);
+            EmailGateway.Send(email);
         }
     }
 }

@@ -1,4 +1,6 @@
 using AutoFixture;
+using AutoFixture.AutoMoq;
+using Moq;
 using Xunit;
 
 namespace AutoFixtureProjects.Maintenance.Tests
@@ -6,42 +8,37 @@ namespace AutoFixtureProjects.Maintenance.Tests
     public class EmailMessageBufferShould
     {
         [Fact]
-        public void AddMessageToBuffer()
+        public void SendEmailToGateway_Manual_Moq()
         {
             var fixture = new Fixture();
-            var sut = new EmailMessageBuffer();
+
+            var mockGateway = new Mock<IEmailGateway>();
+            var sut = new EmailMessageBuffer(mockGateway.Object);
 
             sut.Add(fixture.Create<EmailMessage>());
 
-            Assert.Equal(1, sut.UnsentMessagesCount);
-        }
-
-        [Fact]
-        public void RemoveMessageFromBufferWhenSent()
-        {
-            var fixture = new Fixture();
-            var sut = new EmailMessageBuffer();
-
-            sut.Add(fixture.Create<EmailMessage>());
             sut.SendAll();
 
-            Assert.Equal(0, sut.UnsentMessagesCount);
+            mockGateway.Verify(x => x.Send(It.IsAny<EmailMessage>()), Times.Once);
         }
 
         [Fact]
-        public void SendOnlySpecifiedNumberOfMessages()
+        public void SendEmailToGateway_AutoMoq()
         {
-            var sut = new EmailMessageBuffer();
+            var fixture = new Fixture();
+            var mockGateway = fixture.Freeze<Mock<IEmailGateway>>();
 
-            var fixture = new Fixture(); 
+            fixture.Customize(new AutoMoqCustomization());
 
+            var sut = fixture.Create<EmailMessageBuffer>();
             sut.Add(fixture.Create<EmailMessage>());
-            sut.Add(fixture.Create<EmailMessage>());
-            sut.Add(fixture.Create<EmailMessage>()); 
 
-            sut.SendLimited(2);
+            sut.SendAll();
 
-            Assert.Equal(1, sut.UnsentMessagesCount);
+            // assert
+            // no reference to the mock IEmailGateway
+            // that was automatically provided
+            mockGateway.Verify(x => x.Send(It.IsAny<EmailMessage>()), Times.Once());
         }
     }
 }
