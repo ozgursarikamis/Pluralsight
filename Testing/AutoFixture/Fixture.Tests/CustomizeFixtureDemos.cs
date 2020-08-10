@@ -12,11 +12,12 @@ namespace Fixture.Tests
         {
             var fixture = new AutoFixture.Fixture();
             var timespan = new TimeSpan(3, 2, 1, 0);
-            
+
             fixture.Inject("LHR");
             fixture.Inject(timespan);
             var flight = fixture.Create<FlightDetails>();
         }
+
         [Fact]
         public void SettingValuesForCustomType()
         {
@@ -28,9 +29,20 @@ namespace Fixture.Tests
                 FlightDuration = TimeSpan.FromHours(10),
                 AirlineName = "Awesome Aero"
             });
-            
+
             var flight1 = fixture.Create<FlightDetails>();
             var flight2 = fixture.Create<FlightDetails>();
+        }
+
+        [Fact]
+        public void CustomCreationFunction()
+        {
+            var fixture = new AutoFixture.Fixture();
+
+            fixture.Register(() => DateTime.Now.Ticks.ToString());
+
+            var string1 = fixture.Create<string>();
+            var string2 = fixture.Create<string>();
         }
     }
 }
