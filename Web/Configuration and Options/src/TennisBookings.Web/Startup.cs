@@ -34,12 +34,15 @@ namespace TennisBookings.Web
                 .AddMembershipServices()
                 .AddStaffServices()
                 .AddCourtServices()
-                .AddWeatherForecasting()
+                .AddWeatherForecasting(Configuration)
                 .AddNotifications()                
                 .AddGreetings()
                 .AddCaching()
                 .AddTimeServices()
                 .AddAuditing();
+
+            //services.Configure<ExternalServiceConfig>(
+            //    Configuration.GetSection("ExternalServices"));
 
             services.AddControllersWithViews();
             services.AddRazorPages(options =>
