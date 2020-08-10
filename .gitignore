@@ -108,3 +108,14 @@
 /Testing/AutoFixture/Fixture.Tests/bin/Debug/netcoreapp3.1
 /Testing/AutoFixture/Fixture.Tests/obj/Debug/netcoreapp3.1
 /Testing/AutoFixture/Fixture.Tests/obj
+/Testing/AutoFixtureProjects/AutoFixture.Demo/bin/Debug/netstandard2.0
+/Testing/AutoFixtureProjects/AutoFixture.Demo/obj/Debug/netstandard2.0
+/Testing/AutoFixtureProjects/AutoFixture.Demo/obj
+/Testing/AutoFixtureProjects/AutoFixture.Demo.Tests/bin/Debug/netcoreapp3.1
+/Testing/AutoFixtureProjects/AutoFixture.Demo.Tests/obj/Debug/netcoreapp3.1
+/Testing/AutoFixtureProjects/AutoFixture.Demo.Tests/obj
+/Testing/AutoFixtureProjects.Maintenance/bin/Debug/netstandard2.0
+/Testing/AutoFixtureProjects.Maintenance/obj
+/Testing/AutoFixtureProjects.Maintenance.Tests/bin/Debug/netcoreapp3.1
+/Testing/AutoFixtureProjects.Maintenance.Tests/obj/Debug/netcoreapp3.1
+/Testing/AutoFixtureProjects.Maintenance.Tests/obj
