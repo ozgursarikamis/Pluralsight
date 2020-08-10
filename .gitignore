@@ -119,3 +119,5 @@
 /Testing/AutoFixtureProjects.Maintenance.Tests/bin/Debug/netcoreapp3.1
 /Testing/AutoFixtureProjects.Maintenance.Tests/obj/Debug/netcoreapp3.1
 /Testing/AutoFixtureProjects.Maintenance.Tests/obj
+/Api/Building RESTful API/CourseLibrary.API/bin/Debug/netcoreapp3.1
+/Api/Building RESTful API/CourseLibrary.API/obj
