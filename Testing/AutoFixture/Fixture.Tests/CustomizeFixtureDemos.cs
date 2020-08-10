@@ -50,11 +50,8 @@ namespace Fixture.Tests
         {
             var fixture = new AutoFixture.Fixture();
             
-            var id = fixture.Create<int>();
-            fixture.Inject(id);
-
-            var customerName = fixture.Create<string>();
-            fixture.Inject(customerName);
+            var id = fixture.Freeze<int>();
+            var customerName = fixture.Freeze<string>();
 
             var sut = fixture.Create<Order>();
 
