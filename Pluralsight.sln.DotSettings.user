@@ -38,5 +38,6 @@
     &lt;TestId&gt;xUnit::C907EC95-8C9E-41C9-BBEA-CC1D9E8C9C5D::.NETCoreApp,Version=v3.1::AutoFixtureProjects.Maintenance.Tests.CalculatorShould.Add&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::C907EC95-8C9E-41C9-BBEA-CC1D9E8C9C5D::.NETCoreApp,Version=v3.1::AutoFixtureProjects.Maintenance.Tests.CalculatorShould.AddTwoPositiveNumbers&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::C907EC95-8C9E-41C9-BBEA-CC1D9E8C9C5D::.NETCoreApp,Version=v3.1::AutoFixtureProjects.Maintenance.Tests.CalculatorShould&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::C907EC95-8C9E-41C9-BBEA-CC1D9E8C9C5D::.NETCoreApp,Version=v3.1::AutoFixtureProjects.Maintenance.Tests.BookingShould.CalculateTotalFlightTime&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
