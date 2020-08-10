@@ -17,5 +17,20 @@ namespace Fixture.Tests
             fixture.Inject(timespan);
             var flight = fixture.Create<FlightDetails>();
         }
+        [Fact]
+        public void SettingValuesForCustomType()
+        {
+            var fixture = new AutoFixture.Fixture();
+            fixture.Inject(new FlightDetails
+            {
+                DepartureAirportCode = "PER",
+                ArrivalAirportCode = "LHR",
+                FlightDuration = TimeSpan.FromHours(10),
+                AirlineName = "Awesome Aero"
+            });
+            
+            var flight1 = fixture.Create<FlightDetails>();
+            var flight2 = fixture.Create<FlightDetails>();
+        }
     }
 }
