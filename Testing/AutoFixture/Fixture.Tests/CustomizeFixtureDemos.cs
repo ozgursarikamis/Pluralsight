@@ -89,5 +89,23 @@ namespace Fixture.Tests
                 .Do(x => x.MealOptions.Add("Fish"))
                 .Create();
         }
+
+        [Fact]
+        public void ()
+        {
+            var fixture = new AutoFixture.Fixture();
+
+            fixture.Customize<FlightDetails>(fd =>
+                fd.With(x => x.DepartureAirportCode, "LHR")
+                    .With(x => x.ArrivalAirportCode, "LAX")
+                    .With(x => x.AirlineName, "Fly Fly Premium Air")
+                    .Without(x => x.MealOptions)
+                    .Do(x => x.MealOptions.Add("Chicken"))
+                    .Do(x => x.MealOptions.Add("Fish"))
+            );
+
+            var flight1 = fixture.Create<FlightDetails>();
+            var flight2 = fixture.Create<FlightDetails>();
+        }
     }
 }
