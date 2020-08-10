@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using AutoFixture;
 using Xunit;
 
-namespace Fixture.Tests
+namespace AutoFixtureDemo.Tests
 {
     public class ObjectGraphDemos
     {

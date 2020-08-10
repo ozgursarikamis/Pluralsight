@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Fixture
+namespace AutoFixtureDemo
 {
     public static class LogMessageCreator
     {

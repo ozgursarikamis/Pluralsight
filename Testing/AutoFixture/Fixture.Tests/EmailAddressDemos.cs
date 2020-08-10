@@ -2,7 +2,7 @@ using System.Net.Mail;
 using AutoFixture;
 using Xunit;
 
-namespace Fixture.Tests
+namespace AutoFixtureDemo.Tests
 {
     public class EmailAddressDemos
     {

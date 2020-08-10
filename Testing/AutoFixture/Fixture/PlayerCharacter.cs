@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Fixture
+namespace AutoFixtureDemo
 {
     public class PlayerCharacter
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Fixture
+namespace AutoFixtureDemo
 {
     public class DebugMessageBuffer
     {

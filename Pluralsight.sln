@@ -115,9 +115,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{0E44
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoFixture", "AutoFixture", "{76E1D719-D99B-4CA7-816C-A10CDC47CBE9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fixture", "Testing\AutoFixture\Fixture\Fixture.csproj", "{0DED06F4-400B-4E42-88DA-0A2080CAA351}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoFixtureDemo", "Testing\AutoFixture\Fixture\AutoFixtureDemo.csproj", "{0DED06F4-400B-4E42-88DA-0A2080CAA351}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fixture.Tests", "Testing\AutoFixture\Fixture.Tests\Fixture.Tests.csproj", "{2D87A477-8A9E-4900-9374-0DC0D2A8C525}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoFixtureDemo.Tests", "Testing\AutoFixture\Fixture.Tests\AutoFixtureDemo.Tests.csproj", "{2D87A477-8A9E-4900-9374-0DC0D2A8C525}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

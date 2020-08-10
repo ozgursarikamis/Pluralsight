@@ -1,4 +1,4 @@
-﻿namespace Fixture
+﻿namespace AutoFixtureDemo
 {
     public class NameJoiner
     {

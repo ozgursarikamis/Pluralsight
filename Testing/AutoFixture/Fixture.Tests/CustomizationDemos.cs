@@ -3,7 +3,7 @@ using AutoFixture;
 using Fixture.Tests.SpecimenBuilders;
 using Xunit;
 
-namespace Fixture.Tests
+namespace AutoFixtureDemo.Tests
 {
     public class CustomizationDemos
     {

@@ -1,8 +1,8 @@
 using System;
-using AutoFixture; 
+using AutoFixture;
 using Xunit;
 
-namespace Fixture.Tests
+namespace AutoFixtureDemo.Tests
 {
     public class GuidEnumDemos
     {
