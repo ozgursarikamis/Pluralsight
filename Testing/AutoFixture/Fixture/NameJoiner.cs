@@ -6,7 +6,7 @@
 
         public string Join(string firstName, string lastName)
         {
-            return firstName + ' ' + firstName;
+            return firstName + ' ' + lastName;
         }
     }
 }

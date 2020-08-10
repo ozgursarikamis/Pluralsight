@@ -13,8 +13,8 @@ namespace Fixture.Tests
             var sut = new NameJoiner();
 
 
-            var firstName = fixture.Create<string>();
-            var lastName = fixture.Create<string>();
+            var firstName = fixture.Create("First_");
+            var lastName = fixture.Create("Last_");
 
             // act
             var result = sut.Join(firstName, lastName);
