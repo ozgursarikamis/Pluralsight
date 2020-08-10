@@ -10,8 +10,6 @@ namespace AutoFixtureDemo.Tests
         {
             var fixture = new AutoFixture.Fixture();
             var player = fixture.Create<PlayerCharacter>();
-
-
         }
     }
 }
