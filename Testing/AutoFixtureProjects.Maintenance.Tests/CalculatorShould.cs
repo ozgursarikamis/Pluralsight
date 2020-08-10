@@ -6,12 +6,11 @@ namespace AutoFixtureProjects.Maintenance.Tests
     public class CalculatorShould
     {
         [Theory]
-        [InlineData(1, 2)] // AddTwoPositiveNumbers
-        [InlineData(0, 2)] // AddZeroAndPositiveNumber
-        [InlineData(-5, 1)] // AddNegativeAndPositiveNumber
-        public void Add(int a, int b)
-        {
-            var sut = new Calculator();
+        [InlineAutoData] // AddTwoPositiveNumbers
+        [InlineAutoData(0)] // AddZeroAndPositiveNumber
+        [InlineAutoData(-5)] // AddNegativeAndPositiveNumber
+        public void Add(int a, int b, Calculator sut)
+        { 
             sut.Add(a);
             sut.Add(b);
 
