@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Fixture\AutoFixtureDemo.csproj" />
+    <ProjectReference Include="..\AutoFixture.Demo\AutoFixtureDemo.csproj" />
   </ItemGroup>
 
 </Project>
