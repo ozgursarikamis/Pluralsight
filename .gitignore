@@ -121,3 +121,7 @@
 /Testing/AutoFixtureProjects.Maintenance.Tests/obj
 /Api/Building RESTful API/CourseLibrary.API/bin/Debug/netcoreapp3.1
 /Api/Building RESTful API/CourseLibrary.API/obj
+/Web/Configuration and Options/src/TennisBookings.Web/bin/Debug/netcoreapp3.0
+/Web/Configuration and Options/src/TennisBookings.Web/obj
+/Web/Configuration and Options/src/WeatherService.Api/obj
+/Web/Configuration and Options/src/WeatherService.Api/bin/Debug/netcoreapp2.2
