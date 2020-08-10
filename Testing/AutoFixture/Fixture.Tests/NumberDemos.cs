@@ -18,5 +18,21 @@ namespace Fixture.Tests
             // assert
             Assert.True(sut.Value < 0);
         }
+
+        [Fact]
+        public void Decimals()
+        {
+            // arr
+            var fixture = new AutoFixture.Fixture();
+            var sut = new DecimalCalculator();
+
+            decimal num = fixture.Create<decimal>();
+
+            // act
+            sut.Add(num);
+
+            // ass
+            Assert.Equal(num, sut.Value);
+        }
     }
 }
