@@ -35,5 +35,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f827b9c0_002D35f3_002D43f9_002Daa9a_002Dedb08cd105f5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="EmailMessageBufferShould" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::C907EC95-8C9E-41C9-BBEA-CC1D9E8C9C5D::.NETCoreApp,Version=v3.1::AutoFixtureProjects.Maintenance.Tests.EmailMessageBufferShould&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::C907EC95-8C9E-41C9-BBEA-CC1D9E8C9C5D::.NETCoreApp,Version=v3.1::AutoFixtureProjects.Maintenance.Tests.CalculatorShould.Add&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::C907EC95-8C9E-41C9-BBEA-CC1D9E8C9C5D::.NETCoreApp,Version=v3.1::AutoFixtureProjects.Maintenance.Tests.CalculatorShould.AddTwoPositiveNumbers&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
