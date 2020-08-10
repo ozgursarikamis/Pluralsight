@@ -17,7 +17,7 @@ namespace AutoFixtureProjects.Maintenance
 
         public void SendAll()
         {
-            for (int i = 0; i < _emails.Count; i++)
+            for (var i = 0; i < _emails.Count; i++)
             {
                 var email = _emails[i];
 
@@ -30,15 +30,14 @@ namespace AutoFixtureProjects.Maintenance
         {
             var limitedBatchOfMessages = _emails.Take(maximumMessagesToSend).ToArray();
 
-            for (int i = 0; i < limitedBatchOfMessages.Length; i++)
+            foreach (var email in limitedBatchOfMessages)
             {
-                var email = limitedBatchOfMessages[i];
                 Send(email);
                 _emails.Remove(email);
             }
         }
 
-        private void Send(EmailMessage email)
+        private static void Send(EmailMessage email)
         {
             // simulate sending email
             Debug.WriteLine("Sending email to: " + email.ToAddress);

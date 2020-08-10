@@ -2,7 +2,10 @@ namespace AutoFixtureProjects.Maintenance
 {
     public class EmailMessage
     {
-        public EmailMessage(string toAddress, string messageBody, bool isImportant)
+        public EmailMessage(
+            string toAddress, string messageBody, 
+            bool isImportant
+            )
         {
             ToAddress = toAddress;
             MessageBody = messageBody;

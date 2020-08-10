@@ -113,3 +113,5 @@
 /Testing/AutoFixtureProjects/AutoFixture.Demo.Tests/obj
 /Testing/AutoFixtureProjects.Maintenance/obj
 /Testing/AutoFixtureProjects.Maintenance.Tests/obj
+/Testing/AutoFixtureProjects.Maintenance/bin/Debug/netstandard2.0
+/Testing/AutoFixtureProjects.Maintenance.Tests/bin/Debug/netcoreapp3.1
