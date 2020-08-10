@@ -20,10 +20,8 @@ namespace AutoFixtureProjects.Maintenance.Tests
 
         [Theory]
         [AutoData] // anonymous test data
-        public void AddTwoPositiveNumbers(int a, int b)
-        {
-            var sut = new Calculator();
-
+        public void AddTwoPositiveNumbers(int a, int b, Calculator sut)
+        { 
             sut.Add(a);
             sut.Add(b);
 
