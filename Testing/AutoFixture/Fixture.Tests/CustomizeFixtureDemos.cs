@@ -91,7 +91,7 @@ namespace Fixture.Tests
         }
 
         [Fact]
-        public void ()
+        public void CustomizedBuildingForAllTypesInFixture()
         {
             var fixture = new AutoFixture.Fixture();
 
