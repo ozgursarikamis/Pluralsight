@@ -66,5 +66,14 @@ namespace Fixture.Tests
                 .OmitAutoProperties()
                 .Create();
         }
+        [Fact]
+        public void CustomizedBuilding()
+        {
+            var fixture = new AutoFixture.Fixture();
+            var flight = fixture.Build<FlightDetails>()
+                .With(x => x.ArrivalAirportCode, "LAX")
+                .With(x => x.DepartureAirportCode, "LHR")
+                .Create();
+        }
     }
 }
