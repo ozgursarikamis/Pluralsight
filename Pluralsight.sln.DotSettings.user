@@ -13,6 +13,7 @@
     &lt;TestId&gt;xUnit::2D87A477-8A9E-4900-9374-0DC0D2A8C525::.NETCoreApp,Version=v3.1::Fixture.Tests.CustomTypeDemos.AutoCreation&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::2D87A477-8A9E-4900-9374-0DC0D2A8C525::.NETCoreApp,Version=v3.1::Fixture.Tests.ObjectGraphDemos.AutoCreation&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::2D87A477-8A9E-4900-9374-0DC0D2A8C525::.NETCoreApp,Version=v3.1::Fixture.Tests.AnnotationTests.BasicString&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::2D87A477-8A9E-4900-9374-0DC0D2A8C525::.NETCoreApp,Version=v3.1::Fixture.Tests.CustomizeFixtureDemos.Error&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	

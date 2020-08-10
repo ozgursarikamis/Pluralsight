@@ -32,7 +32,7 @@ namespace Fixture
         public string AirlineName { get; set; }
         public List<string> MealOptions { get; set; } = new List<string>();
 
-        private void EnsureValidAirportCode(string airportCode)
+        private static void EnsureValidAirportCode(string airportCode)
         {
             var isWrongLength = airportCode.Length != 3;
 

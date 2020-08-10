@@ -4,7 +4,7 @@ namespace Fixture
 {
     public class EmailMessage
     {
-        private string _somePrivateField;
+        // private readonly string _somePrivateField;
 
         public string SomePublicField;
         private string SomePrivateProperty { get; set; }
