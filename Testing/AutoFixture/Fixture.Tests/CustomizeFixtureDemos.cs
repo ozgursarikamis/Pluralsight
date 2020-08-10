@@ -57,5 +57,15 @@ namespace Fixture.Tests
 
             Assert.Equal(id + "-" + customerName, sut.ToString());
         }
+
+        [Fact]
+        public void OmitSettingSpecificProperties()
+        {
+            var fixture = new AutoFixture.Fixture();
+            var flight = fixture.Build<FlightDetails>()
+                .Without(x => x.ArrivalAirportCode)
+                .Without(x => x.DepartureAirportCode)
+                .Create();
+        }
     }
 }
