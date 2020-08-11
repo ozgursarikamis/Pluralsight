@@ -1,0 +1,2 @@
+﻿dotnet user-secrets set "ExternalServices:ProductsApi:ApiKey" "SUPERSECRETKEY"
+dotnet user-secrets list
