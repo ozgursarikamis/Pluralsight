@@ -1,4 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=05ace3bf_002Df617_002D4e72_002Dbffb_002D0d2a84f44cdf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CompliesWithRuleAsync_ReturnsTrue_WhenValuesAreValid" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::A389CC99-E98D-4601-A300-A68E690015CC::.NETCoreApp,Version=v3.0::TennisBookings.Web.Tests.ClubIsOpenRuleTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::A389CC99-E98D-4601-A300-A68E690015CC::.NETCoreApp,Version=v3.0::TennisBookings.Web.Tests.CachedWeatherForecasterTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6ed58d9c_002D8683_002D4607_002Da646_002D568601372bfa/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestMethod1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Not&gt;&#xD;
     &lt;Category&gt;&amp;lt;Uncategorized&amp;gt;&lt;/Category&gt;&#xD;
