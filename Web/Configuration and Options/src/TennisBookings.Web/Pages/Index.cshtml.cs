@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+using TennisBookings.Web.Configuration;
 using TennisBookings.Web.Services;
 
 namespace TennisBookings.Web.Pages
@@ -10,11 +12,15 @@ namespace TennisBookings.Web.Pages
         private readonly IWeatherForecaster _weatherForecaster;
         private readonly IGreetingService _greetingService;
         private readonly IConfiguration _configuration;
+        private readonly HomePageConfiguration _homePageConfiguration;
 
-        public IndexModel(IGreetingService greetingService, IConfiguration configuration, IWeatherForecaster weatherForecaster)
+        public IndexModel(
+            IGreetingService greetingService,
+            IWeatherForecaster weatherForecaster,
+            IOptions<HomePageConfiguration> options)
         {
             _greetingService = greetingService;
-            _configuration = configuration;
+            _homePageConfiguration = options.Value;
             _weatherForecaster = weatherForecaster;
         }
 
@@ -26,22 +32,18 @@ namespace TennisBookings.Web.Pages
 
         public async Task OnGet()
         {
-            //var homePageFeatures = _configuration.GetSection("Features:HomePage");
-            var feature = new Features();
-            _configuration.Bind("Features:HomePage", feature);
-
-            if (feature.EnableWeatherForecast)
+            if (_homePageConfiguration.EnableWeatherForecast)
             {
                 Greeting = _greetingService.GetRandomGreeting();
             }
 
             //ShowWeatherForecast = homePageFeatures.GetValue<bool>("EnableWeatherForecast");
-            ShowWeatherForecast = feature.EnableWeatherForecast && _weatherForecaster.ForecastEnabled;
+            ShowWeatherForecast = _homePageConfiguration.EnableWeatherForecast && _weatherForecaster.ForecastEnabled;
 
             if (ShowWeatherForecast)
             {
                 //var title = homePageFeatures["ForecastSectionTitle"];
-                var title = feature.ForecastSectionTitle;
+                var title = _homePageConfiguration.ForecastSectionTitle;
                 ForecastSectionTitle = string.IsNullOrEmpty(title) ? "How is the weather" : title;
 
                 var currentWeather = await _weatherForecaster.GetCurrentWeatherAsync();
@@ -67,13 +69,6 @@ namespace TennisBookings.Web.Pages
                     }
                 }
             }
-        }
-
-        private class Features
-        {
-            public bool EnableGreeting { get; set; }
-            public bool EnableWeatherForecast { get; set; }
-            public string ForecastSectionTitle { get; set; }
         }
     }
 }
