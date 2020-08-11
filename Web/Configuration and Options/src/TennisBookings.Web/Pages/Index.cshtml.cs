@@ -17,7 +17,7 @@ namespace TennisBookings.Web.Pages
         public IndexModel(
             IGreetingService greetingService,
             IWeatherForecaster weatherForecaster,
-            IOptions<HomePageConfiguration> options)
+            IOptionsSnapshot<HomePageConfiguration> options)
         {
             _greetingService = greetingService;
             _homePageConfiguration = options.Value;
