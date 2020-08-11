@@ -9,13 +9,13 @@ namespace TennisBookings.Web.Configuration
         private readonly WeatherForecastingConfiguration _weatherConfig;
 
         public HomePageConfigurationValidation(
-            IOptions<ContentConfiguration> contentConfig,
+            IContentConfiguration contentConfig,
             IOptions<WeatherForecastingConfiguration> weatherConfig,
             IProfanityChecker profanityChecker)
         {
             _profanityChecker = profanityChecker;
             _weatherConfig = weatherConfig.Value;
-            _checkerProfanity = contentConfig.Value.CheckForProfanity;
+            _checkerProfanity = contentConfig.CheckForProfanity;
         }
 
         public ValidateOptionsResult Validate(string name, HomePageConfiguration options)

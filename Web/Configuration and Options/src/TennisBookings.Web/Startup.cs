@@ -33,7 +33,7 @@ namespace TennisBookings.Web
              services.Configure<HomePageConfiguration>(Configuration.GetSection("Features:HomePage"));
             
              services.TryAddEnumerable(ServiceDescriptor.Singleton<IValidateOptions<HomePageConfiguration>, HomePageConfigurationValidation>());
-             services.TryAddEnumerable(ServiceDescriptor.Singleton<IValidateOptions<ExternalServicesConfig>, ExternalServicesConfigurationValidation>());
+             // services.TryAddEnumerable(ServiceDescriptor.Singleton<IValidateOptions<ExternalServicesConfig>, ExternalServicesConfigurationValidation>());
 
              services.AddHostedService<TimedHostedService>();
              services.AddHostedService<ValidateOptionsService>();
@@ -42,22 +42,26 @@ namespace TennisBookings.Web
              services.Configure<ExternalServicesConfig>(ExternalServicesConfig.WeatherApi, Configuration.GetSection("ExternalServices:WeatherApi"));
              services.Configure<ExternalServicesConfig>(ExternalServicesConfig.ProductsApi, Configuration.GetSection("ExternalServices:ProductsApi"));
 
-            services
-                .AddAppConfiguration(Configuration)
-                .AddBookingServices()
-                .AddBookingRules()
-                .AddCourtUnavailability()
-                .AddMembershipServices()
-                .AddStaffServices()
-                .AddCourtServices()
-                .AddWeatherForecasting(Configuration)
-                .AddExternalProducts()
-                .AddNotifications()
-                .AddGreetings()
-                .AddCaching()
-                .AddTimeServices()
-                .AddAuditing()
-                .AddContentServices();
+             services.Configure<ContentConfiguration>(Configuration.GetSection("Content"));
+             services.AddSingleton<IContentConfiguration>(sp => 
+                 sp.GetRequiredService<IOptions<ContentConfiguration>>().Value);
+
+             services
+                 .AddAppConfiguration(Configuration)
+                 .AddBookingServices()
+                 .AddBookingRules()
+                 .AddCourtUnavailability()
+                 .AddMembershipServices()
+                 .AddStaffServices()
+                 .AddCourtServices()
+                 .AddWeatherForecasting(Configuration)
+                 .AddExternalProducts()
+                 .AddNotifications()
+                 .AddGreetings()
+                 .AddCaching()
+                 .AddTimeServices()
+                 .AddAuditing()
+                 .AddContentServices();
 
             //services.Configure<ExternalServiceConfig>(
             //    Configuration.GetSection("ExternalServices"));

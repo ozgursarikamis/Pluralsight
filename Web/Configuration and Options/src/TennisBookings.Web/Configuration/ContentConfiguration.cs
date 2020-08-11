@@ -7,6 +7,6 @@
     }
     public class ContentConfiguration : IContentConfiguration
     {
-        public bool CheckForProfanity { get; set; }
+        public bool CheckForProfanity { get; }
     }
 }
