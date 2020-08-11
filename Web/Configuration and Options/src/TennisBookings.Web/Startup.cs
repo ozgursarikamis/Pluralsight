@@ -8,6 +8,7 @@ using TennisBookings.Web.Data;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
 using TennisBookings.Web.Configuration;
+using TennisBookings.Web.Services;
 
 namespace TennisBookings.Web
 {
@@ -38,6 +39,8 @@ namespace TennisBookings.Web
                 Configuration.GetSection("ExternalServices:WeatherApi"));
             services.Configure<ExternalServiceConfiguration>(ExternalServiceConfiguration.ProductsApi,
                 Configuration.GetSection("ExternalServices:ProductsApi"));
+
+            services.AddHostedService<TimedHostedService>();
 
             services
                 .AddAppConfiguration(Configuration)
