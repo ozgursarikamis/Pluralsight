@@ -14,6 +14,7 @@ namespace TennisBookings.Web.Data
         public DbSet<Court> Courts { get; set; }
 
         public DbSet<CourtBooking> CourtBookings { get; set; }
+        public DbSet<ConfigurationEntry> ConfigurationEntries { get; set; }
 
         public DbSet<Member> Members { get; set; }
         
