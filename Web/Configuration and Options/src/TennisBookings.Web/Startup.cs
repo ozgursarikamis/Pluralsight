@@ -32,7 +32,16 @@ namespace TennisBookings.Web
 
             services.AddOptions<HomePageConfiguration>()
                 .Bind(Configuration.GetSection("Features:HomePage"))
-                .ValidateDataAnnotations();
+                .Validate(x =>
+                {
+                    if (x.EnableWeatherForecast && string.IsNullOrEmpty(x.ForecastSectionTitle))
+                    {
+                        return false;
+                    }
+
+                    return true;
+                }, "section title must be provided.");
+                //.ValidateDataAnnotations();
 
             services.Configure<GreetingConfiguration>(Configuration.GetSection("Features:Greeting"));
             services.Configure<ExternalServiceConfiguration>(ExternalServiceConfiguration.WeatherApi, 
