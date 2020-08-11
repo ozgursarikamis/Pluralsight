@@ -7,6 +7,8 @@ using TennisBookings.Web.Core.DependencyInjection;
 using TennisBookings.Web.Data;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
 using TennisBookings.Web.Configuration;
 using TennisBookings.Web.Services;
 
@@ -28,20 +30,11 @@ namespace TennisBookings.Web
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             
-            // services.Configure<HomePageConfiguration>(Configuration.GetSection("Features:HomePage"));
+             services.Configure<HomePageConfiguration>(Configuration.GetSection("Features:HomePage"));
 
-            services.AddOptions<HomePageConfiguration>()
-                .Bind(Configuration.GetSection("Features:HomePage"))
-                .Validate(x =>
-                {
-                    if (x.EnableWeatherForecast && string.IsNullOrEmpty(x.ForecastSectionTitle))
-                    {
-                        return false;
-                    }
-
-                    return true;
-                }, "section title must be provided.");
-                //.ValidateDataAnnotations();
+             services.TryAddEnumerable(
+                 ServiceDescriptor
+                     .Singleton<IValidateOptions<HomePageConfiguration>, HomePageConfigurationValidation>());
 
             services.Configure<GreetingConfiguration>(Configuration.GetSection("Features:Greeting"));
             services.Configure<ExternalServiceConfiguration>(ExternalServiceConfiguration.WeatherApi, 
@@ -50,6 +43,7 @@ namespace TennisBookings.Web
                 Configuration.GetSection("ExternalServices:ProductsApi"));
 
             services.AddHostedService<TimedHostedService>();
+            services.AddHostedService<ValidateOptionsService>();
 
             services
                 .AddAppConfiguration(Configuration)
@@ -61,11 +55,12 @@ namespace TennisBookings.Web
                 .AddCourtServices()
                 .AddWeatherForecasting(Configuration)
                 .AddExternalProducts()
-                .AddNotifications()                
+                .AddNotifications()
                 .AddGreetings()
                 .AddCaching()
                 .AddTimeServices()
-                .AddAuditing();
+                .AddAuditing()
+                .AddContentServices();
 
             //services.Configure<ExternalServiceConfig>(
             //    Configuration.GetSection("ExternalServices"));

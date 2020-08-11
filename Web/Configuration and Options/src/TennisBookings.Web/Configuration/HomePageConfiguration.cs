@@ -9,7 +9,13 @@ namespace TennisBookings.Web.Configuration
         
         [Required]
         public string ForecastSectionTitle { get; set; }
+    } 
+
+    public class WeatherForecastingConfiguration
+    {
+        public bool EnableWeatherForecast { get; set; }
     }
+
 
     public class GreetingConfiguration
     { 
