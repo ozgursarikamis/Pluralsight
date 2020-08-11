@@ -125,3 +125,5 @@
 /Web/Configuration and Options/src/TennisBookings.Web/obj
 /Web/Configuration and Options/src/WeatherService.Api/obj
 /Web/Configuration and Options/src/WeatherService.Api/bin/Debug/netcoreapp2.2
+/Web/Configuration and Options/src/BrandedProducts.Api/bin/Debug/netcoreapp2.2
+/Web/Configuration and Options/src/BrandedProducts.Api/obj
