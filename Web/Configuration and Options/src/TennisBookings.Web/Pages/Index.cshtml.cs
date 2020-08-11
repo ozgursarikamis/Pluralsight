@@ -11,7 +11,7 @@ namespace TennisBookings.Web.Pages
     {
         private readonly IWeatherForecaster _weatherForecaster;
         private readonly IGreetingService _greetingService;
-        private readonly IConfiguration _configuration;
+        //private readonly IConfiguration _configuration;
         private readonly HomePageConfiguration _homePageConfiguration;
 
         public IndexModel(
@@ -22,7 +22,11 @@ namespace TennisBookings.Web.Pages
             _greetingService = greetingService;
             _homePageConfiguration = options.Value;
             _weatherForecaster = weatherForecaster;
+
+            GreetingColor = _greetingService.GreetingColour ?? "black";
         }
+
+        public string GreetingColor { get; set; }
 
         public string Greeting { get; private set; }
         public bool ShowGreeting => !string.IsNullOrEmpty(Greeting);

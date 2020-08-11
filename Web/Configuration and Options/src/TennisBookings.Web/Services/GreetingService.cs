@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Threading;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using TennisBookings.Web.Configuration;
 
 namespace TennisBookings.Web.Services
 {
@@ -10,9 +13,21 @@ namespace TennisBookings.Web.Services
     {
         private static readonly ThreadLocal<Random> Random
             = new ThreadLocal<Random>(() => new Random());
-        
-        public GreetingService(IWebHostEnvironment webHostEnvironment)
+
+        private GreetingConfiguration _greetingConfiguration;
+        public GreetingService(
+            IWebHostEnvironment webHostEnvironment,
+            ILogger<GreetingConfiguration> logger,
+            IOptionsMonitor<GreetingConfiguration> options
+            )
         {
+            _greetingConfiguration = options.CurrentValue;
+            options.OnChange(config =>
+            {
+                _greetingConfiguration = config;
+                logger.LogInformation("The greeting configuration has been updated");
+            });
+
             var webRootPath = webHostEnvironment.WebRootPath;
 
             var greetingsJson = System.IO.File.ReadAllText(webRootPath + "/greetings.json");
@@ -39,7 +54,8 @@ namespace TennisBookings.Web.Services
             var loginGreeting = GetRandomValue(LoginGreetings);
 
             return loginGreeting.Replace("{name}", name);
-        }
+        } 
+        public string GreetingColour => _greetingConfiguration.GreetingColour;
 
         private string GetRandomValue(IReadOnlyList<string> greetings)
         {

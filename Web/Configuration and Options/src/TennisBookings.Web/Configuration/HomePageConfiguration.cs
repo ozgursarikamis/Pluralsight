@@ -6,4 +6,9 @@
         public bool EnableWeatherForecast { get; set; }
         public string ForecastSectionTitle { get; set; }
     }
+
+    public class GreetingConfiguration
+    { 
+        public string GreetingColour { get; set; }
+    }
 }
