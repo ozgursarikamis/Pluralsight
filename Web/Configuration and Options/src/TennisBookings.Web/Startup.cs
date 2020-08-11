@@ -31,19 +31,16 @@ namespace TennisBookings.Web
                     Configuration.GetConnectionString("DefaultConnection")));
             
              services.Configure<HomePageConfiguration>(Configuration.GetSection("Features:HomePage"));
+            
+             services.TryAddEnumerable(ServiceDescriptor.Singleton<IValidateOptions<HomePageConfiguration>, HomePageConfigurationValidation>());
+             services.TryAddEnumerable(ServiceDescriptor.Singleton<IValidateOptions<ExternalServicesConfig>, ExternalServicesConfigurationValidation>());
 
-             services.TryAddEnumerable(
-                 ServiceDescriptor
-                     .Singleton<IValidateOptions<HomePageConfiguration>, HomePageConfigurationValidation>());
+             services.AddHostedService<TimedHostedService>();
+             services.AddHostedService<ValidateOptionsService>();
 
-            services.Configure<GreetingConfiguration>(Configuration.GetSection("Features:Greeting"));
-            services.Configure<ExternalServiceConfiguration>(ExternalServiceConfiguration.WeatherApi, 
-                Configuration.GetSection("ExternalServices:WeatherApi"));
-            services.Configure<ExternalServiceConfiguration>(ExternalServiceConfiguration.ProductsApi,
-                Configuration.GetSection("ExternalServices:ProductsApi"));
-
-            services.AddHostedService<TimedHostedService>();
-            services.AddHostedService<ValidateOptionsService>();
+             services.Configure<GreetingConfiguration>(Configuration.GetSection("Features:Greeting"));
+             services.Configure<ExternalServicesConfig>(ExternalServicesConfig.WeatherApi, Configuration.GetSection("ExternalServices:WeatherApi"));
+             services.Configure<ExternalServicesConfig>(ExternalServicesConfig.ProductsApi, Configuration.GetSection("ExternalServices:ProductsApi"));
 
             services
                 .AddAppConfiguration(Configuration)

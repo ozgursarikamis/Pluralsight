@@ -16,10 +16,10 @@ namespace TennisBookings.Web.External
 
         public WeatherApiClient(
             HttpClient httpClient, 
-            IOptionsMonitor<ExternalServiceConfiguration> config, 
+            IOptionsMonitor<ExternalServicesConfig> config, 
             ILogger<WeatherApiClient> logger)
         {
-            var weatherApiOptions = config.Get(ExternalServiceConfiguration.WeatherApi);
+            var weatherApiOptions = config.Get(ExternalServicesConfig.WeatherApi);
             var externalServiceConfig = weatherApiOptions;
 
             httpClient.BaseAddress = new Uri(externalServiceConfig.Url);
@@ -58,11 +58,11 @@ namespace TennisBookings.Web.External
         private readonly HttpClient _httpClient;
         private readonly ILogger<ProductsApiClient> _logger;
         private readonly IMemoryCache _cache;
-        private readonly IOptionsMonitor<ExternalServiceConfiguration> _productsApiConfig;
+        private readonly IOptionsMonitor<ExternalServicesConfig> _productsApiConfig;
 
-        public ProductsApiClient(HttpClient httpClient, IOptionsMonitor<ExternalServiceConfiguration> options, ILogger<ProductsApiClient> logger, IMemoryCache cache)
+        public ProductsApiClient(HttpClient httpClient, IOptionsMonitor<ExternalServicesConfig> options, ILogger<ProductsApiClient> logger, IMemoryCache cache)
         {
-            var externalServicesConfig = options.Get(ExternalServiceConfiguration.ProductsApi);
+            var externalServicesConfig = options.Get(ExternalServicesConfig.ProductsApi);
 
             httpClient.BaseAddress = new Uri(externalServicesConfig.Url);
 
@@ -98,7 +98,7 @@ namespace TennisBookings.Web.External
                 {
                     var cacheOptions = new MemoryCacheEntryOptions
                     {
-                        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(_productsApiConfig.Get(ExternalServiceConfiguration.ProductsApi).MinsToCache)
+                        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(_productsApiConfig.Get(ExternalServicesConfig.ProductsApi).MinsToCache)
                     };
 
                     _cache.Set(cacheKey, content, cacheOptions);

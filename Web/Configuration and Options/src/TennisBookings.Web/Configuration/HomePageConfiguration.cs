@@ -22,7 +22,7 @@ namespace TennisBookings.Web.Configuration
         public string GreetingColour { get; set; }
     }
 
-    public class ExternalServiceConfiguration
+    public class ExternalServicesConfig
     {
         public const string WeatherApi = "WeatherApi";
         public const string ProductsApi = "ProductsApi";

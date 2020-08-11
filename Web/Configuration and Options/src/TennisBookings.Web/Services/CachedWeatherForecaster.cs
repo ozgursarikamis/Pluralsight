@@ -11,18 +11,18 @@ namespace TennisBookings.Web.Services
     {
         private readonly IWeatherForecaster _weatherForecaster;
         private readonly IDistributedCache<CurrentWeatherResult> _cache;
-        // private readonly ExternalServiceConfiguration _externalServicesConfig;
+        // private readonly ExternalServicesConfig _externalServicesConfig;
         private readonly int _minsToCache;
 
         public bool ForecastEnabled => _weatherForecaster.ForecastEnabled;
 
         public CachedWeatherForecaster(IWeatherForecaster weatherForecaster, 
             IDistributedCache<CurrentWeatherResult> cache,
-            IOptionsMonitor<ExternalServiceConfiguration> options)
+            IOptionsMonitor<ExternalServicesConfig> options)
         {
             _weatherForecaster = weatherForecaster;
             _cache = cache;
-            _minsToCache = options.Get(ExternalServiceConfiguration.WeatherApi).MinsToCache;
+            _minsToCache = options.Get(ExternalServicesConfig.WeatherApi).MinsToCache;
         }
 
         public async Task<CurrentWeatherResult> GetCurrentWeatherAsync()

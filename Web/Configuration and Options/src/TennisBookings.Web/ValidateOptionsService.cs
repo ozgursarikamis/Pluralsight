@@ -12,9 +12,9 @@ namespace TennisBookings.Web
         private readonly ILogger<ValidateOptionsService> _logger;
         private readonly IHostApplicationLifetime _appLifeTime;
         private readonly IOptions<HomePageConfiguration> _homePageConfig;
-        private readonly IOptionsMonitor<ExternalServiceConfiguration> _externalServiceConfig;
+        private readonly IOptionsMonitor<ExternalServicesConfig> _externalServiceConfig;
 
-        public ValidateOptionsService(ILogger<ValidateOptionsService> logger, IHostApplicationLifetime appLifeTime, IOptions<HomePageConfiguration> homePageConfig, IOptionsMonitor<ExternalServiceConfiguration> externalServiceConfig)
+        public ValidateOptionsService(ILogger<ValidateOptionsService> logger, IHostApplicationLifetime appLifeTime, IOptions<HomePageConfiguration> homePageConfig, IOptionsMonitor<ExternalServicesConfig> externalServiceConfig)
         {
             _logger = logger;
             _appLifeTime = appLifeTime;
@@ -27,8 +27,8 @@ namespace TennisBookings.Web
             try
             {
                 _ = _homePageConfig.Value;
-                _ = _externalServiceConfig.Get(ExternalServiceConfiguration.ProductsApi);
-                _ = _externalServiceConfig.Get(ExternalServiceConfiguration.WeatherApi);
+                _ = _externalServiceConfig.Get(ExternalServicesConfig.ProductsApi);
+                _ = _externalServiceConfig.Get(ExternalServicesConfig.WeatherApi);
             }
             catch (OptionsValidationException exception)
             {
