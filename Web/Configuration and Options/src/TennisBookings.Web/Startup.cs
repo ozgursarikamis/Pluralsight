@@ -29,6 +29,10 @@ namespace TennisBookings.Web
             
             services.Configure<HomePageConfiguration>(Configuration.GetSection("Features:HomePage"));
             services.Configure<GreetingConfiguration>(Configuration.GetSection("Features:Greeting"));
+            services.Configure<ExternalServiceConfiguration>(ExternalServiceConfiguration.WeatherApi, 
+                Configuration.GetSection("ExternalServices:WeatherApi"));
+            services.Configure<ExternalServiceConfiguration>(ExternalServiceConfiguration.ProductsApi,
+                Configuration.GetSection("ExternalServices:ProductsApi"));
 
             services
                 .AddAppConfiguration(Configuration)
@@ -39,6 +43,7 @@ namespace TennisBookings.Web
                 .AddStaffServices()
                 .AddCourtServices()
                 .AddWeatherForecasting(Configuration)
+                .AddExternalProducts()
                 .AddNotifications()                
                 .AddGreetings()
                 .AddCaching()

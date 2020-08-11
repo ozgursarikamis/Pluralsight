@@ -27,4 +27,13 @@ namespace TennisBookings.Web.Core.DependencyInjection
             return services;
         }
     }
+    public static class ProductsServiceCollectionExtensions
+    {
+        public static IServiceCollection AddExternalProducts(this IServiceCollection services)
+        {
+            services.AddHttpClient<IProductsApiClient, ProductsApiClient>();
+
+            return services;
+        }
+    }
 }

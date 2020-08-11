@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using TennisBookings.Web.Configuration;
+using TennisBookings.Web.External;
 using TennisBookings.Web.Services;
 
 namespace TennisBookings.Web.Pages
@@ -12,16 +14,19 @@ namespace TennisBookings.Web.Pages
         private readonly IWeatherForecaster _weatherForecaster;
         private readonly IGreetingService _greetingService;
         //private readonly IConfiguration _configuration;
+        private readonly IProductsApiClient _productsApiClient;
         private readonly HomePageConfiguration _homePageConfiguration;
 
         public IndexModel(
             IGreetingService greetingService,
             IWeatherForecaster weatherForecaster,
-            IOptionsSnapshot<HomePageConfiguration> options)
+            IOptionsSnapshot<HomePageConfiguration> options, 
+            IProductsApiClient productsApiClient)
         {
             _greetingService = greetingService;
             _homePageConfiguration = options.Value;
             _weatherForecaster = weatherForecaster;
+            _productsApiClient = productsApiClient;
 
             GreetingColor = _greetingService.GreetingColour ?? "black";
         }
@@ -73,6 +78,11 @@ namespace TennisBookings.Web.Pages
                     }
                 }
             }
+            var productsResult = await _productsApiClient.GetProducts();
+
+            Products = productsResult.Products;
         }
+
+        public IReadOnlyCollection<Product> Products { get; set; }
     }
 }
