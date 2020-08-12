@@ -1,12 +1,12 @@
-import * as _ from "lodash";
+// import * as _ from "lodash";
 
 class Communicator {
     constructor() {}
 
     greet(message: string): string {
-        return `<h1>${_.toUpper(message)}</h1>`
+        return communicatorGlobal(message);
     }
 }
 
 var communicator = new Communicator();
-document!.body.innerHTML = communicator.greet("Hello World");
+document!.body.innerHTML = communicator.greet("Hello, World");
