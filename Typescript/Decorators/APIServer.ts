@@ -1,6 +1,8 @@
 import * as http from "http";
-import express, { Request, Response, Express } from "express";
+import express, { Express } from "express";
 import bodyParser from "body-parser";
+import EntityRouter from './EntityRouter';
+import BaseEntity from "./entities/BaseEntity";
 
 export default class APIServer {
 
@@ -21,7 +23,7 @@ export default class APIServer {
 
         // Set port
         this._app.set("port", process.env.PORT || 3000);
-        
+
         // Add Middleware
         this.configureMiddleware();
     }
@@ -41,11 +43,16 @@ export default class APIServer {
         });
     }
 
+    public addEntity<T extends BaseEntity>(clazz) {
+        const name = Reflect.getMetadata("entity:name", clazz);
+        let entityRouter = new EntityRouter<T>(name, clazz);
+        this._app.use(`/${name}`, entityRouter.router);
+    }
+
     public start() {
         // Start the server instance
         this._server = this._app.listen(this._app.get("port"), () => {
             console.log("Server is running on port " + this._app.get("port"));
         });
     }
-
 }
