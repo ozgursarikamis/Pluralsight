@@ -8,6 +8,11 @@
 
 // declare function communicatorGlobal(message:string): string;
 
-declare namespace communicationGlobal {
-    function greet(message: string): string;
+declare namespace communicatorGlobal {
+    function greet(): string;
+    let settings: Settings;
+    class Settings {
+        constructor(message: string);
+        message: string;
+    }
 }
