@@ -6,3 +6,4 @@ export { aString };
 export default function() {
     return 'defult function'
 }
+console.log('a.ts');

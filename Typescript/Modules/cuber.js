@@ -1,3 +1,3 @@
-export function cube(num) {
+export function cuber(num) {
     return num * num * num;
 }

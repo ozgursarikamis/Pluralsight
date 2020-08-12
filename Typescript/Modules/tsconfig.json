@@ -9,7 +9,6 @@
         "emitDecoratorMetadata": true,
         "outDir": "out",
         "sourceMap": true,
-        "allowJs": true,
-        "declaration": true /* for .d.ts files */
+        "allowJs": true
     }
 }
