@@ -6,4 +6,8 @@
  *~ Otherwise, delete this section.
  */
 
-declare function communicatorGlobal(message:string): string;
+// declare function communicatorGlobal(message:string): string;
+
+declare namespace communicationGlobal {
+    function greet(message: string): string;
+}

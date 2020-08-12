@@ -4,7 +4,7 @@ class Communicator {
     constructor() {}
 
     greet(message: string): string {
-        return communicatorGlobal(message);
+        return communicationGlobal.greet(message);
     }
 }
 
