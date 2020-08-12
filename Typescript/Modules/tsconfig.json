@@ -1,14 +1,11 @@
 {
     "compilerOptions": {
-        "target": "es2015", /* modules first supported version, majority of browsers use it.*/
-        "module": "es2015",
-        "strict": true,
-        "moduleResolution": "Node",
-        "esModuleInterop": true,
+        "target": "es6",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
+        "module": "commonjs",
+        "esModuleInterop": true,
         "outDir": "out",
-        "sourceMap": true,
-        "allowJs": true
+        "sourceMap": true
     }
 }
