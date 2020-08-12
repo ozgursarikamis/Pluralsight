@@ -1,11 +1,10 @@
-import * as communicatorModularAMD from 'communicatorModularAMD';
+import * as communicatorModularCJS from 'communicatorModularCJS';
 
 class Communicator {
     constructor() {}
 
     greet(message: string): string {
-        return communicatorModularAMD.greet(message);
-        // return communicatorModularUMD.greet(message);
+        return communicatorModularCJS.greet(message);
     }
 }
 
