@@ -1,0 +1,1 @@
+export const message = "re-export from somestring";
