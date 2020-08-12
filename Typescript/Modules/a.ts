@@ -1,0 +1,1 @@
+export const aString = "this is a string from a.ts";
