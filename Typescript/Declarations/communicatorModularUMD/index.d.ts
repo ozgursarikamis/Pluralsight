@@ -13,6 +13,6 @@
  *~ Otherwise, delete this declaration.
  */
 
-export as namespace communicatorModularUMD;
+// export as namespace communicatorModularUMD;
 
 export function greet(message:string): string;

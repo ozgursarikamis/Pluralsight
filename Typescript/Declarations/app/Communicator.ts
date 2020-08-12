@@ -1,4 +1,5 @@
 // import * as _ from "lodash";
+import * as communicatorModularUMD from 'communicatorModularUMD';
 
 class Communicator {
     constructor() {}
