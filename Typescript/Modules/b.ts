@@ -1,4 +1,4 @@
-import { isOdd } from "./utils/index";
+import { isOdd } from "./utils";
 import { aString } from "./a";
 
 console.log(aString);
