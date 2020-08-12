@@ -8,6 +8,7 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "outDir": "out",
-        "sourceMap": true
+        "sourceMap": true,
+        "allowJs": true
     }
 }
