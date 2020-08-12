@@ -5,7 +5,8 @@ class Communicator {
     constructor() {}
 
     greet(message: string): string {
-        return communicatorModularUMD.greet(message);
+        return communicatorModularUMD.otherFunctions.goodbye();
+        // return communicatorModularUMD.greet(message);
     }
 }
 
