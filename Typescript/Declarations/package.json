@@ -1,0 +1,22 @@
+{
+  "name": "ps-declarations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Communicatior.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.9.7",
+    "ts-loader": "8.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.0"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.159",
+    "lodash": "^4.17.19"
+  }
+}
