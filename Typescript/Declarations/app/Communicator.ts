@@ -1,14 +1,13 @@
-// import * as _ from "lodash";
-import * as communicatorModularUMD from 'communicatorModularUMD';
+import * as communicatorModularAMD from 'communicatorModularAMD';
 
 class Communicator {
     constructor() {}
 
     greet(message: string): string {
-        return communicatorModularUMD.otherFunctions.goodbye();
+        return communicatorModularAMD.greet(message);
         // return communicatorModularUMD.greet(message);
     }
 }
 
 var communicator = new Communicator();
-document!.body.innerHTML = communicator.greet("Hello, World");
+document!.body.innerHTML = communicator.greet("HelloWorld");
